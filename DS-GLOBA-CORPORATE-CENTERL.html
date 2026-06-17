@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DS Global Corporate Center — Directory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="stage">
+<div class="screen">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <img class="brand-logo" src="assets/DS-GLOBAL-HOLDINGS-LOGO.png" alt="DS Global Holding Inc. Logo">
+    </div>
+
+    <div class="weather" id="weather">
+      <svg class="weather-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="weather-text">
+        <span class="weather-temp"><span id="tempLow">27</span>° / <span id="tempHigh">30</span>°</span>
+        <span class="weather-unit">C</span>
+        <span class="weather-city">QUEZON CITY</span>
+      </div>
+    </div>
+
+    <div class="clock">
+      <span class="clock-time" id="clockTime">03:35</span>
+      <span class="clock-meridiem" id="clockMeridiem">PM</span>
+      <span class="clock-day" id="clockDay">WEDNESDAY</span>
+    </div>
+  </header>
+
+  <!-- HERO - Clean Video -->
+  <section class="hero">
+    <video class="hero-bg" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+      <source src="assets/examplevideo.mp4" type="video/mp4">
+    </video>
+    <div class="hero-tint"></div>
+  </section>
+
+  <!-- DIRECTORY -->
+  <main class="directory" id="directory">
+    <!-- Will be populated by JavaScript from directory.xml -->
+  </main>
+
+  <!-- FOOTER INFO -->
+  <section class="info">
+    <div class="info-col">
+      <div class="info-head info-head--red">EMERGENCY HOTLINES</div>
+      <div class="quick-dial">
+        <span>Quick Dial</span>
+        <strong>122</strong>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Fire Department</span>
+        <span class="info-value">(02) 8343-2222</span>
+      </div>
+    </div>
+
+    <div class="info-col">
+      <div class="info-head info-head--blue">LAW &amp; SAFETY</div>
+      <div class="info-block">
+        <span class="info-label">Police Department</span>
+        <span class="info-value">(02) 8726-2624</span>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Bureau of Fire Protection</span>
+        <span class="info-value">(02) 8726-2237</span>
+      </div>
+    </div>
+
+    <div class="info-col">
+      <div class="info-head info-head--cyan">GENERAL INQUIRIES</div>
+      <div class="info-block">
+        <span class="info-value">+63 908 888 5626</span>
+        <a class="info-link" href="mailto:inquiries.dsglobal@gmail.com">inquiries.dsglobal@gmail.com</a>
+        <span class="info-sub">10A DS Global Corporate Center, Mindanao Ave, Greater Lagos, Quezon City, PH 1100</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <section class="ticker">
+    <div class="ticker-tag">ANNOUNCEMENTS</div>
+    <div class="ticker-track">
+      <div class="ticker-content" id="tickerContent">
+        <span>BUILDING MAINTENANCE SCHEDULED 12AM TO 4AM&nbsp;&nbsp;•&nbsp;&nbsp;CHECK OUR WEBSITE FOR VENUE BOOKINGS&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip"></div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
