@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<footer>
+  <column title="EMERGENCY HOTLINES" theme="red">
+    <quickDial label="Quick Dial" value="122" />
+    <item>
+      <label>Fire Department</label>
+      <value>(02) 8343-2222</value>
+    </item>
+  </column>
+
+  <column title="LAW &amp; SAFETY" theme="blue">
+    <item>
+      <label>Police Department</label>
+      <value>(02) 8726-2624</value>
+    </item>
+    <item>
+      <label>Bureau of Fire Protection</label>
+      <value>(02) 8726-2237</value>
+    </item>
+  </column>
+
+  <column title="GENERAL INQUIRIES" theme="cyan">
+    <item>
+      <value>+63 975 019 2080</value>
+      <email>inquiries.dsglobal@gmail.com</email>
+      <note>DS Global Corporate Center, Mindanao Ave Extension, Greater Lagro, Quezon City, Metro Manila, NCR, Philippines 1100</note>
+    </item>
+  </column>
+</footer>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<videos>
+  <video src="assets/videos/example-video2.mp4" poster="assets/hero-poster.jpg" />
+  <video src="assets/videos/examplevideo.mp4" poster="assets/hero-poster2.jpg" />
+  <!-- Add more videos here -->
+</videos>

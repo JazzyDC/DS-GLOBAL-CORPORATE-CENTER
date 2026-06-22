@@ -177,6 +177,23 @@ html, body{
   gap: 26px;
 }
 
+.directory.is-fading-out .directory-page{
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.directory-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+  min-height: 100%;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  animation: directoryFadeIn 0.65s ease both;
+}
+
 .level-divider{
   display: flex;
   align-items: center;
@@ -194,10 +211,21 @@ html, body{
 
 .level-divider span{
   font-size: 19px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 4.5px;
-  color: var(--accent-cyan);
+  color: var(--navy);
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.level-divider small{
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--muted);
 }
 
 .row{
@@ -251,11 +279,19 @@ html, body{
   gap: 6px;
 }
 
+.row-heading{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+}
+
 .row-title{
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 30px;
   color: var(--ink);
+  min-width: 0;
 }
 
 .row-title-accent{
@@ -270,15 +306,35 @@ html, body{
   font-weight: 500;
 }
 
+.row-date{
+  color: var(--muted);
+  flex-shrink: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
 .row-icon{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 104px;
+  width: 118px;
   flex-shrink: 0;
+  font-size: 42px;
 }
 
-.row-icon svg{ width: 42px; height: 42px; }
+@keyframes directoryFadeIn{
+  from{
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.row-icon svg{ width: 52px; height: 52px; }
 
 .icon-asterisk{
   color: var(--red);
@@ -394,7 +450,7 @@ html, body{
 .ticker-content{
   display: flex;
   white-space: nowrap;
-  animation: scrollTicker 24s linear infinite;
+  animation: scrollTicker 90s linear infinite;
 }
 
 .ticker-content span{

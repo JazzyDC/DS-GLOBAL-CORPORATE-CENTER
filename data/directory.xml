@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<directory>
+  <level name="LEVEL 8F" date="JUNE 18, 2026">
+    <item>
+      <floor>8F</floor>
+      <title>Elevator Lobby</title>
+      <icon>↓</icon>
+    </item>
+    <item>
+      <floor>8F</floor>
+      <title>Common Hallway</title>
+      <icon>👤</icon>
+    </item>
+    <item>
+      <floor>8F</floor>
+      <title>Fire Exits &amp; Emergency</title>
+      <icon>✳</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 9F" date="JUNE 19, 2026">
+    <item featured="true">
+      <floor>9F</floor>
+      <title>The Top</title>
+      <subtitle>(Second Level)</subtitle>
+      <icon>⭐</icon>
+    </item>
+    <item>
+      <floor>9F</floor>
+      <title>Events &amp; Conference Center</title>
+      <subtitle>A/V Suite, Projectors, Mobile Stage, Executive Partitions</subtitle>
+      <icon>👥</icon>
+    </item>
+  </level>
+  <level name="LEVEL 10F" date="JUNE 20, 2026">
+    <item>
+      <floor>10F</floor>
+      <title>Executive Offices</title>
+      <subtitle>Reception, Meeting Rooms, Private Offices</subtitle>
+      <icon>&#128188;</icon>
+    </item>
+    <item date="9:00 AM - 6:00 PM">
+      <floor>10F</floor>
+      <title>Client Lounge</title>
+      <subtitle>Waiting Area, Pantry, Consultation Room</subtitle>
+      <icon>&#9749;</icon>
+    </item>
+    <item>
+      <floor>10F</floor>
+      <title>Admin Services</title>
+      <subtitle>Document Processing and Building Support</subtitle>
+      <icon>&#128196;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 11F" date="JUNE 21, 2026">
+    <item featured="true">
+      <floor>11F</floor>
+      <title>Training Hall</title>
+      <subtitle>Seminars, Workshops, Briefings</subtitle>
+      <icon>&#127891;</icon>
+    </item>
+    <item>
+      <floor>11F</floor>
+      <title>Board Room</title>
+      <subtitle>Conference Table, Display System, Video Call Setup</subtitle>
+      <icon>&#128101;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 12F" date="JUNE 22, 2026">
+    <item>
+      <floor>12F</floor>
+      <title>Operations Center</title>
+      <subtitle>Daily Coordination, Monitoring, Team Dispatch</subtitle>
+      <icon>&#9881;</icon>
+    </item>
+    <item>
+      <floor>12F</floor>
+      <title>Accounting Office</title>
+      <subtitle>Billing, Collections, Finance Assistance</subtitle>
+      <icon>&#128179;</icon>
+    </item>
+    <item date="OPEN">
+      <floor>12F</floor>
+      <title>Records Room</title>
+      <subtitle>Forms, Archives, Document Requests</subtitle>
+      <icon>&#128450;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 13F" date="JUNE 23, 2026">
+    <item featured="true">
+      <floor>13F</floor>
+      <title>Sky Lounge</title>
+      <subtitle>VIP Holding Area and Private Events</subtitle>
+      <icon>&#10024;</icon>
+    </item>
+    <item>
+      <floor>13F</floor>
+      <title>Creative Studio</title>
+      <subtitle>Content Room, Production Desk, Editing Suite</subtitle>
+      <icon>&#127909;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 14F" date="JUNE 24, 2026">
+    <item>
+      <floor>14F</floor>
+      <title>Roof Deck Access</title>
+      <subtitle>Authorized Personnel Only</subtitle>
+      <icon>&#127970;</icon>
+    </item>
+    <item>
+      <floor>14F</floor>
+      <title>Maintenance Office</title>
+      <subtitle>Facilities, Electrical, Housekeeping Support</subtitle>
+      <icon>&#128736;</icon>
+    </item>
+    <item date="24/7">
+      <floor>14F</floor>
+      <title>Security Post</title>
+      <subtitle>Monitoring and Building Assistance</subtitle>
+      <icon>&#128737;</icon>
+    </item>
+  </level>
+</directory>
