@@ -118,7 +118,7 @@ async function fetchWeather() {
     const data = await res.json();
 
     document.getElementById("tempLow").textContent =
-      Number(data.current.temperature_2m).toFixed(1);
+      Math.round(data.current.temperature_2m);
 
     document.getElementById("tempHigh").textContent =
       Math.round(data.daily.temperature_2m_max[0]);

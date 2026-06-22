@@ -1,6 +1,6 @@
 :root{
-  --navy: #0B1C3A;           
-  --navy-light: #132C5A;
+  --navy: #2E318E;           
+  --navy-light: #2E318E;
   --ink: #0F2549;
   --muted: #8A9EB9;
   --line: #E4E9F2;
@@ -12,7 +12,7 @@
   
   --red: #E5484D;            
   --red-soft: #FDEDED;
-  --footer-navy: #0A1833;
+  --footer-navy: #2E318E;
 }
 
 *{ box-sizing: border-box; margin:0; padding:0; }
@@ -429,7 +429,7 @@ html, body{
 
 .ticker-tag{
   background: var(--accent-cyan);
-  color: #0B1C3A;
+  color: #2E318E;
   font-size: 19px;
   font-weight: 800;
   letter-spacing: 1px;
