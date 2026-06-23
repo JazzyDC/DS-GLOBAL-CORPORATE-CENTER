@@ -76,41 +76,55 @@ html, body{
 .weather{
   display: flex;
   align-items: center;
-  gap: 18px;
-  background: #F2F4F7;
-  border-radius: 22px;
-  padding: 20px 32px;
+  justify-content: center;
+  gap: 16px;
+  width: 300px;
+  min-height: 92px;
+  padding: 0;
   flex-shrink: 0;
 }
 
-.weather-icon{ width: 48px; height: 48px; flex-shrink: 0; }
+.weather-art{
+  position: relative;
+  width: 124px;
+  height: 82px;
+  flex-shrink: 0;
+}
 
-.weather-text{
+.weather-icon{
+  position: absolute;
+  inset: 0;
+  width: 124px;
+  height: 82px;
+}
+
+.weather-copy{
   display: flex;
   flex-direction: column;
-  line-height: 1.22;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1;
+  min-width: 0;
 }
 
 .weather-temp{
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  color: var(--ink);
-}
-
-.weather-unit{
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 27px;
-  color: var(--ink);
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--navy);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9),
+    0 4px 10px rgba(46, 49, 142, 0.22);
 }
 
 .weather-city{
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 1.6px;
-  color: var(--muted);
-  margin-top: 3px;
+  margin-top: 5px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #D5A1A1;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 .clock{

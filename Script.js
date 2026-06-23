@@ -82,49 +82,59 @@ setInterval(fetchNewsTicker, 15 * 60 * 1000);
 // ===== WEATHER =====
 function weatherIconSVG(code) {
   const sun = `
-    <circle cx="13" cy="8.3" r="5.2" fill="#F6B11A"/>
-    <g stroke="#D6A03A" stroke-width="1.2" stroke-linecap="round" opacity="0.55">
-      <line x1="13" y1="0.8" x2="13" y2="2.7"/>
-      <line x1="5.5" y1="8.3" x2="7.4" y2="8.3"/>
-      <line x1="18.6" y1="8.3" x2="20.5" y2="8.3"/>
-      <line x1="7.7" y1="3" x2="9" y2="4.3"/>
-      <line x1="17" y1="4.3" x2="18.3" y2="3"/>
+    <circle cx="42" cy="39" r="25" fill="url(#weatherSun)"/>
+    <g stroke="#D6A03A" stroke-width="2.8" stroke-linecap="round" opacity="0.42">
+      <line x1="18" y1="21" x2="12" y2="16"/>
+      <line x1="65" y1="17" x2="71" y2="11"/>
+      <line x1="43" y1="5" x2="43" y2="12"/>
+      <line x1="14" y1="43" x2="7" y2="44"/>
     </g>`;
   const cloud = `
-    <path d="M5.8 18.3h11.5c2.4 0 4.2-1.7 4.2-3.8 0-2-1.6-3.6-3.8-3.8A5.4 5.4 0 0 0 7.4 12a3.4 3.4 0 0 0-1.6 6.3Z"
-      fill="#75BFEA"/>
-    <path d="M6.1 18.3h11.2c2.4 0 4.2-1.7 4.2-3.8 0-.4-.1-.8-.2-1.1-.5 1.4-2 2.4-3.8 2.4H6.2c-1.3 0-2.4-.5-3.1-1.3-.1.2-.1.5-.1.8 0 1.8 1.4 3 3.1 3Z"
-      fill="#5AAFE0" opacity="0.55"/>`;
-  const rain = `
-    <g stroke="#2D9CDB" stroke-width="1.45" stroke-linecap="round">
-      <line x1="8.6" y1="20" x2="7.8" y2="22"/>
-      <line x1="12.4" y1="20" x2="11.6" y2="22"/>
-      <line x1="16.2" y1="20" x2="15.4" y2="22"/>
+    <g filter="url(#weatherShadow)">
+      <path d="M43 72h58c12.8 0 23.2-9 23.2-20.2 0-10.5-9.2-19.3-21.1-20.1C98.1 19.6 86 12 72.1 12c-15 0-27.6 9.1-30.7 21.5C30.7 34.9 22 43 22 52.8 22 63.4 31.4 72 43 72Z" fill="url(#weatherCloud)"/>
+      <path d="M42.6 72h58.9c12.2 0 22.2-8.4 22.2-19.4 0-2.2-.4-4.2-1.1-6.1-3.2 6.3-10.4 10.8-18.8 10.8H44.8c-7.9 0-14.9-3.6-18.9-9.1-2.2 3-3.4 6.4-3.4 10C22.5 66 31.4 72 42.6 72Z" fill="#7FC8EE" opacity="0.58"/>
     </g>`;
+  const rain = `
+    <path d="M70 79c0 5.7-4.5 9.7-9.5 9.7S51 84.7 51 79c0-5.2 6.7-13.3 9.5-16.4C63.5 65.7 70 73.7 70 79Z" fill="#0B67D6"/>`;
+  const lightning = `
+    <path d="M128 48l-10 19h10l-12 20 26-28h-12l9-11h-11Z" fill="#F4C20D"/>
+    <path d="M15 57L8 70h7L7 84l17-20h-8l6-7h-7Z" fill="#F4C20D"/>`;
+  const defs = `
+    <defs>
+      <linearGradient id="weatherSun" x1="16" y1="13" x2="66" y2="64" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FFE05C"/>
+        <stop offset="1" stop-color="#F4B400"/>
+      </linearGradient>
+      <linearGradient id="weatherCloud" x1="44" y1="14" x2="99" y2="74" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#DDF4FF"/>
+        <stop offset="0.55" stop-color="#9FD7F5"/>
+        <stop offset="1" stop-color="#5AAFE0"/>
+      </linearGradient>
+      <filter id="weatherShadow" x="14" y="4" width="119" height="77" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#64748B" flood-opacity="0.22"/>
+      </filter>
+    </defs>`;
 
-  if (code === 0) return sun;
-  if ([1, 2].includes(code)) return `${sun}${cloud}`;
-  if ([3, 45, 48].includes(code)) return cloud;
-  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return `${cloud}${rain}`;
-  if ([71, 73, 75, 77, 85, 86].includes(code)) return `${cloud}<circle cx="9" cy="21" r="1" fill="#BAE6FD"/><circle cx="14" cy="21.5" r="1" fill="#BAE6FD"/>`;
-  if ([95, 96, 99].includes(code)) return `${cloud}${rain}<path d="M13 12.3l-2 3.2h2.2l-1.3 3.2 3.4-4.3h-2.2l1.4-2.1H13Z" fill="#FACC15"/>`;
-  return `${sun}${cloud}`;
+  if (code === 0) return `${defs}${sun}`;
+  if ([1, 2].includes(code)) return `${defs}${sun}${cloud}`;
+  if ([3, 45, 48].includes(code)) return `${defs}${cloud}`;
+  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return `${defs}${sun}${cloud}${rain}`;
+  if ([95, 96, 99].includes(code)) return `${defs}${sun}${cloud}${lightning}`;
+  return `${defs}${sun}${cloud}`;
 }
 
 async function fetchWeather() {
   try {
-    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=14.6760&longitude=121.0437&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Asia/Manila&_=${Date.now()}`;
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=14.6760&longitude=121.0437&current=temperature_2m,weather_code&timezone=Asia/Manila&_=${Date.now()}`;
     const res = await fetch(weatherUrl, { cache: "no-store" });
     const data = await res.json();
+    const weatherCode = data.current.weather_code;
 
-    document.getElementById("tempLow").textContent =
+    document.getElementById("weatherCurrent").textContent =
       Math.round(data.current.temperature_2m);
 
-    document.getElementById("tempHigh").textContent =
-      Math.round(data.daily.temperature_2m_max[0]);
-
     const iconEl = document.querySelector(".weather-icon");
-    if (iconEl) iconEl.innerHTML = weatherIconSVG(data.current.weather_code);
+    if (iconEl) iconEl.innerHTML = weatherIconSVG(weatherCode);
   } catch (err) {
     console.error("Weather load error:", err);
   }
