@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<videos><video src="assets/videos/Luxury, Convenience, Security Redefined _ DS Global Quezon City HQ Tour.mp4" poster="assets/hero-poster2.jpg" />
-  <video src="assets/videos/A Legacy of Sustainable Innovation _ DS Global Holdings Inc..mp4" poster="assets/hero-poster.jpg" />
+<videos><video src="assets/videos/Luxury, Convenience, Security Redefined _ DS Global Quezon City HQ Tour.mp4" poster="assets/images/Suggested Background.jpg" />
+  <video src="assets/videos/A Legacy of Sustainable Innovation _ DS Global Holdings Inc..mp4" poster="assets/images/Suggested Background.jpg" />
   <!-- Add more videos here -->
 </videos>

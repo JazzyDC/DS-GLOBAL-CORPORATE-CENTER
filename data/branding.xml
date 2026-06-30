@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<branding>
+  <!-- CLIENT LOGO: Place the replacement logo in assets/images and update this path. -->
+  <logo
+    src="assets/images/DSGLOBAL-CORPORATE-CENTER-LOGO-02.png"
+    alt="DS Global Corporate Center Logo"
+  />
+
+  <!-- TOP HEADER PATTERN: Banner shown above the logo, weather, and clock. -->
+  <headerPattern
+    src="assets/images/Pattern DS Global Holdings-05.png"
+    height="50"
+    fit="cover"
+    position="center"
+  />
+
+  <!-- BOTTOM FOOTER PATTERN: Decorative strip shown below the news ticker. -->
+  <strip
+    src="assets/images/Pattern DS Global Holdings-04.png"
+    height="50"
+    fit="cover"
+    position="center"
+  />
+</branding>

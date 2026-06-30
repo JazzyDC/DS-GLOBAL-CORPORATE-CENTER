@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DS Global Corporate Center - Directory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy: #2E318E;           
+  --navy-light: #2E318E;
+  --ink: #0F2549;
+  --muted: #6687b4;
+  --line: #E4E9F2;
+  --bg: #F4F7FC;
+  --white: #FFFFFF;
+  
+  --accent-cyan: #22D3EE;    
+  --blue: #3B82F6;
+  
+  --red: #E5484D;            
+  --red-soft: #FDEDED;
+  --footer-navy: #2E318E;
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+
+html, body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--navy);
+  font-family: 'Inter', sans-serif;
+}
+
+#stage{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen{
+  width: 1080px;
+  height: 1920px;
+  flex-shrink: 0;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(240, 249, 252, 0.28), rgba(240, 249, 252, 0.28)),
+    url("assets/images/Suggested Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.header-pattern{
+  --header-pattern-image: url("assets/images/Pattern DS Global Holdings-05.png");
+  --header-pattern-size: cover;
+  --header-pattern-position: center;
+  height: 50px;
+  flex-shrink: 0;
+  background-color: #FFFFFF;
+  background-image: var(--header-pattern-image);
+  background-repeat: no-repeat;
+  background-position: var(--header-pattern-position);
+  background-size: var(--header-pattern-size);
+  border-bottom: 3px solid var(--navy);
+}
+
+/* ===== HEADER ===== */
+.header{
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 28px 56px;
+  border-bottom: 3px solid var(--line);
+  flex-shrink: 0;
+  min-height: 140px;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  padding-right: 48px;
+  border-right: 2px solid var(--line);
+  flex-shrink: 0;
+}
+
+.brand-logo{
+  height: 82px;
+  width: auto;
+  max-width: 380px;
+  display: block;
+  object-fit: contain;
+}
+
+.weather{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 300px;
+  min-height: 92px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.weather-art{
+  position: relative;
+  width: 124px;
+  height: 82px;
+  flex-shrink: 0;
+}
+
+.weather-icon{
+  position: absolute;
+  inset: 0;
+  width: 124px;
+  height: 82px;
+}
+
+.weather-copy{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1;
+  min-width: 0;
+}
+
+.weather-temp{
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--navy);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9),
+    0 4px 10px rgba(46, 49, 142, 0.22);
+}
+
+.weather-city{
+  margin-top: 5px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #D5A1A1;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.clock{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.05;
+  flex-shrink: 0;
+  padding-left: 40px;
+  border-left: 2px solid var(--line);
+}
+
+.clock-time{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 52px;
+  color: var(--navy);
+}
+
+.clock-meridiem{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  color: var(--navy);
+}
+
+.clock-day{
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ===== HERO - Clean Video ===== */
+.hero{
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hero-bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-tint{
+  position: absolute;
+  inset: 0;
+}
+
+/* ===== DIRECTORY ===== */
+.directory{
+  flex: 1;
+  min-height: 0;
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+  background-image:
+    linear-gradient(rgba(235, 246, 252, 0.16), rgba(255, 239, 211, 0.06)),
+    url("assets/images/Suggested Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.directory.is-fading-out .directory-page{
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.directory-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+  min-height: 100%;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  animation: directoryFadeIn 0.65s ease both;
+}
+
+.level-divider{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 6px 0;
+}
+
+.level-divider::before,
+.level-divider::after{
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #F5A623);
+}
+
+.level-divider::after{
+  background: linear-gradient(90deg, #F5A623, transparent);
+}
+
+.level-divider span{
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 4.5px;
+  color: #FFFFFF;
+  text-shadow: 0 2px 5px rgba(15, 37, 73, 0.55);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.level-divider small{
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+}
+
+.row{
+  background: var(--white);
+  border-radius: 28px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(16,26,43,0.04);
+  border: 1px solid #F0F1F4;
+}
+
+.badge{
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 138px;
+  flex-shrink: 0;
+  padding: 22px 8px;
+}
+
+.badge-label{
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+.badge-num{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+}
+
+.badge--light{
+  background: var(--white);
+  color: var(--ink);
+  border-right: 7px solid var(--accent-cyan);
+}
+
+.row-body{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 28px;
+  gap: 6px;
+}
+
+.row-heading{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.row-title{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.row-title-accent{
+  font-weight: 600;
+  color: var(--accent-cyan);
+  font-size: 26px;
+}
+
+.row-subtitle{
+  font-size: 20px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.row-date{
+  color: var(--muted);
+  flex-shrink: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.row-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 118px;
+  flex-shrink: 0;
+  font-size: 42px;
+}
+
+.row-icon img{
+  width: 72px;
+  height: 72px;
+  display: block;
+  object-fit: contain;
+}
+
+@keyframes directoryFadeIn{
+  from{
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.row-icon svg{ width: 52px; height: 52px; }
+
+.icon-asterisk{
+  color: var(--red);
+  font-size: 40px;
+}
+
+/* ===== IMPROVED BOTTOM INFO SECTION ===== */
+.info{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 38px 44px 30px;
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.info-head{
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: #5B6B85;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.info-head--red{ color: var(--red); }
+.info-head--blue{ color: var(--blue); }
+.info-head--cyan{ color: var(--accent-cyan); }
+
+.info-block{
+  margin-bottom: 18px;
+}
+
+.info-label{
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.info-value{
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 4px 0;
+}
+
+.info-sub{
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.info-link{
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Quick Dial Highlight */
+.quick-dial{
+  background: var(--red-soft);
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quick-dial span{
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--red);
+}
+
+.quick-dial strong{
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--red);
+}
+
+/* ===== TICKER ===== */
+.ticker{
+  display: flex;
+  align-items: stretch;
+  height: 68px;
+  flex-shrink: 0;
+  background: #000;
+}
+
+.ticker-track{
+  flex: 1;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-content{
+  display: flex;
+  white-space: nowrap;
+  animation: scrollTicker 90s linear infinite;
+  will-change: transform;
+}
+
+.ticker-content span{
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #FFF;
+  padding-left: 30px;
+}
+
+@keyframes scrollTicker{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+/* ===== BOTTOM STRIP ===== */
+.strip{
+  --strip-image: url("assets/images/Pattern DS Global Holdings-04.png");
+  --strip-art-size: cover;
+  --strip-art-position: center;
+  height: 50px;
+  background-color: var(--footer-navy);
+  background-image: var(--strip-image);
+  background-repeat: no-repeat;
+  background-size: var(--strip-art-size);
+  background-position: var(--strip-art-position);
+  border-bottom: 5px solid var(--accent-cyan);
+  flex-shrink: 0;
+}
+</style>
+</head> 
+<body>
+
+<div id="stage">
+<div class="screen">
+
+  <div class="header-pattern" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <img class="brand-logo" src="assets/images/DSGLOBAL-CORPORATE-CENTER-LOGO-02.png" alt="DS Global Corporate Center Logo">
+    </div>
+
+    <div class="weather" id="weather">
+      <div class="weather-art">
+        <svg class="weather-icon" viewBox="0 0 150 96" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <div class="weather-copy">
+        <span class="weather-temp"><span id="weatherCurrent">30</span>&deg;C</span>
+        <span class="weather-city">Quezon City</span>
+      </div>
+    </div>
+
+    <div class="clock">
+      <span class="clock-time" id="clockTime">03:35</span>
+      <span class="clock-meridiem" id="clockMeridiem">PM</span>
+      <span class="clock-day" id="clockDay">WEDNESDAY</span>
+    </div>
+  </header>
+
+  <!-- HERO - Clean Video -->
+  <section class="hero">
+    <video class="hero-bg" autoplay muted loop playsinline>
+      <source src="assets/videos/Luxury, Convenience, Security Redefined _ DS Global Quezon City HQ Tour.mp4" type="video/mp4">
+    </video>
+    <div class="hero-tint"></div>
+  </section>
+
+  <!-- DIRECTORY -->
+  <main class="directory" id="directory">
+    <!-- Will be populated by JavaScript from data/directory.xml -->
+  </main>
+
+  <!-- FOOTER INFO -->
+  <section class="info">
+    <!-- Will be populated by JavaScript from data/footer.xml -->
+  </section>
+
+  <!-- TICKER -->
+  <section class="ticker" aria-label="News ticker">
+    <div class="ticker-track">
+      <div class="ticker-content" id="tickerContent">
+        <span>BUILDING MAINTENANCE SCHEDULED 12AM TO 4AM&nbsp;&nbsp;•&nbsp;&nbsp;CHECK OUR WEBSITE FOR VENUE BOOKINGS&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip"></div>
+
+</div>
+</div>
+
+<script>
+// ===== FULLSCREEN SCALE-TO-FIT =====
+const CANVAS_W = 1080;
+const CANVAS_H = 1920;
+const XML_DATA_BASE = "data/";
+const FALLBACK_XML = {
+  "branding.xml": String.raw`<?xml version="1.0" encoding="UTF-8"?>
+<branding>
+  <logo src="assets/images/DSGLOBAL-CORPORATE-CENTER-LOGO-02.png" alt="DS Global Corporate Center Logo" />
+  <headerPattern src="assets/images/Pattern DS Global Holdings-05.png" height="50" fit="cover" position="center" />
+  <strip src="assets/images/Pattern DS Global Holdings-04.png" height="50" fit="cover" position="center" />
+</branding>`,
+  "footer.xml": String.raw`<?xml version="1.0" encoding="UTF-8"?>
+<footer>
+  <column title="EMERGENCY HOTLINES" theme="red">
+    <quickDial label="Quick Dial" value="122" />
+    <item><label>Fire Department</label><value>(02) 8343-2222</value></item>
+  </column>
+  <column title="LAW &amp; SAFETY" theme="blue">
+    <item><label>Police Department</label><value>(02) 8726-2624</value></item>
+    <item><label>Bureau of Fire Protection</label><value>(02) 8726-2237</value></item>
+  </column>
+  <column title="GENERAL INQUIRIES" theme="cyan">
+    <item>
+      <value>+63 975 019 2080</value>
+      <email>inquiries.dsglobal@gmail.com</email>
+      <note>DS Global Corporate Center, Mindanao Ave Extension, Greater Lagro, Quezon City, Metro Manila, NCR, Philippines 1100</note>
+    </item>
+  </column>
+</footer>`,
+  "videos.xml": String.raw`<?xml version="1.0" encoding="UTF-8"?>
+<videos>
+  <video src="assets/videos/Luxury, Convenience, Security Redefined _ DS Global Quezon City HQ Tour.mp4" poster="assets/images/Suggested Background.jpg" />
+  <video src="assets/videos/A Legacy of Sustainable Innovation _ DS Global Holdings Inc..mp4" poster="assets/images/Suggested Background.jpg" />
+</videos>`,
+  "directory.xml": String.raw`<?xml version="1.0" encoding="UTF-8"?>
+<directory>
+  <level name="LEVEL 8F" date="JUNE 18, 2026">
+    <item><floor>8F</floor><title>Elevator Lobby</title><image>assets/images/floor-8.svg</image><imageAlt>Level 8 floor image</imageAlt><icon>&#8595;</icon></item>
+    <item><floor>8F</floor><title>Common Hallway</title><image>assets/images/floor-8.svg</image><imageAlt>Level 8 floor image</imageAlt><icon>&#128100;</icon></item>
+    <item><floor>8F</floor><title>Fire Exits &amp; Emergency</title><image>assets/images/floor-8.svg</image><imageAlt>Level 8 floor image</imageAlt><icon>&#10035;</icon></item>
+  </level>
+  <level name="LEVEL 9F" date="JUNE 19, 2026">
+    <item featured="true"><floor>9F</floor><title>The Top</title><subtitle>(Second Level)</subtitle><image>assets/images/floor-9.svg</image><imageAlt>Level 9 floor image</imageAlt><icon>&#11088;</icon></item>
+    <item><floor>9F</floor><title>Events &amp; Conference Center</title><subtitle>A/V Suite, Projectors, Mobile Stage, Executive Partitions</subtitle><image>assets/images/floor-9.svg</image><imageAlt>Level 9 floor image</imageAlt><icon>&#128101;</icon></item>
+  </level>
+  <level name="LEVEL 10F" date="JUNE 20, 2026">
+    <item><floor>10F</floor><title>Executive Offices</title><subtitle>Reception, Meeting Rooms, Private Offices</subtitle><image>assets/images/floor-10.svg</image><imageAlt>Level 10 floor image</imageAlt><icon>&#128188;</icon></item>
+    <item date="9:00 AM - 6:00 PM"><floor>10F</floor><title>Client Lounge</title><subtitle>Waiting Area, Pantry, Consultation Room</subtitle><image>assets/images/floor-10.svg</image><imageAlt>Level 10 floor image</imageAlt><icon>&#9749;</icon></item>
+    <item><floor>10F</floor><title>Admin Services</title><subtitle>Document Processing and Building Support</subtitle><image>assets/images/floor-10.svg</image><imageAlt>Level 10 floor image</imageAlt><icon>&#128196;</icon></item>
+  </level>
+  <level name="LEVEL 11F" date="JUNE 21, 2026">
+    <item featured="true"><floor>11F</floor><title>Training Hall</title><subtitle>Seminars, Workshops, Briefings</subtitle><image>assets/images/floor-11.svg</image><imageAlt>Level 11 floor image</imageAlt><icon>&#127891;</icon></item>
+    <item><floor>11F</floor><title>Board Room</title><subtitle>Conference Table, Display System, Video Call Setup</subtitle><image>assets/images/floor-11.svg</image><imageAlt>Level 11 floor image</imageAlt><icon>&#128101;</icon></item>
+  </level>
+  <level name="LEVEL 12F" date="JUNE 22, 2026">
+    <item><floor>12F</floor><title>Operations Center</title><subtitle>Daily Coordination, Monitoring, Team Dispatch</subtitle><image>assets/images/floor-12.svg</image><imageAlt>Level 12 floor image</imageAlt><icon>&#9881;</icon></item>
+    <item><floor>12F</floor><title>Accounting Office</title><subtitle>Billing, Collections, Finance Assistance</subtitle><image>assets/images/floor-12.svg</image><imageAlt>Level 12 floor image</imageAlt><icon>&#128179;</icon></item>
+    <item date="OPEN"><floor>12F</floor><title>Records Room</title><subtitle>Forms, Archives, Document Requests</subtitle><image>assets/images/floor-12.svg</image><imageAlt>Level 12 floor image</imageAlt><icon>&#128450;</icon></item>
+  </level>
+  <level name="LEVEL 13F" date="JUNE 23, 2026">
+    <item featured="true"><floor>13F</floor><title>Sky Lounge</title><subtitle>VIP Holding Area and Private Events</subtitle><image>assets/images/floor-13.svg</image><imageAlt>Level 13 floor image</imageAlt><icon>&#10024;</icon></item>
+    <item><floor>13F</floor><title>Creative Studio</title><subtitle>Content Room, Production Desk, Editing Suite</subtitle><image>assets/images/floor-13.svg</image><imageAlt>Level 13 floor image</imageAlt><icon>&#127909;</icon></item>
+  </level>
+  <level name="LEVEL 14F" date="JUNE 24, 2026">
+    <item><floor>14F</floor><title>Roof Deck Access</title><subtitle>Authorized Personnel Only</subtitle><image>assets/images/floor-14.svg</image><imageAlt>Level 14 floor image</imageAlt><icon>&#127970;</icon></item>
+    <item><floor>14F</floor><title>Maintenance Office</title><subtitle>Facilities, Electrical, Housekeeping Support</subtitle><image>assets/images/floor-14.svg</image><imageAlt>Level 14 floor image</imageAlt><icon>&#128736;</icon></item>
+    <item date="24/7"><floor>14F</floor><title>Security Post</title><subtitle>Monitoring and Building Assistance</subtitle><image>assets/images/floor-14.svg</image><imageAlt>Level 14 floor image</imageAlt><icon>&#128737;</icon></item>
+  </level>
+</directory>`
+};
+
+async function loadXMLText(fileName) {
+  try {
+    const res = await fetch(`${XML_DATA_BASE}${fileName}`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`${fileName} request failed: ${res.status}`);
+    return await res.text();
+  } catch (err) {
+    console.warn(`Using embedded fallback for ${fileName}:`, err);
+    return FALLBACK_XML[fileName] || "";
+  }
+}
+
+function scaleToFit() {
+  const screen = document.querySelector(".screen");
+  if (!screen) return;
+  const scaleX = window.innerWidth / CANVAS_W;
+  const scaleY = window.innerHeight / CANVAS_H;
+  const isPortrait = window.innerHeight >= window.innerWidth;
+
+  screen.style.transform = isPortrait
+    ? `scale(${scaleX}, ${scaleY})`
+    : `scale(${Math.min(scaleX, scaleY)})`;
+}
+
+scaleToFit();
+window.addEventListener("resize", scaleToFit);
+
+// ===== XML BRANDING =====
+function brandingAttribute(element, name) {
+  return element ? String(element.getAttribute(name) || "").trim() : "";
+}
+
+async function loadBranding() {
+  try {
+    const text = await loadXMLText("branding.xml");
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+    if (xml.querySelector("parsererror")) throw new Error("Invalid branding XML");
+
+    const logoSettings = xml.querySelector("logo");
+    const headerPatternSettings = xml.querySelector("headerPattern");
+    const stripSettings = xml.querySelector("strip");
+    const logo = document.querySelector(".brand-logo");
+    const headerPattern = document.querySelector(".header-pattern");
+    const strip = document.querySelector(".strip");
+
+    const logoSrc = safeLocalAssetPath(brandingAttribute(logoSettings, "src"));
+    if (logo && logoSrc) logo.src = logoSrc;
+
+    const logoAlt = brandingAttribute(logoSettings, "alt");
+    if (logo && logoAlt) logo.alt = logoAlt;
+
+    const fitSizes = {
+      cover: "cover",
+      contain: "contain",
+      stretch: "100% 100%",
+      natural: "auto"
+    };
+
+    const headerPatternSrc = safeLocalAssetPath(brandingAttribute(headerPatternSettings, "src"));
+    if (headerPattern && headerPatternSrc) {
+      headerPattern.style.setProperty(
+        "--header-pattern-image",
+        `url("${headerPatternSrc.replace(/"/g, '\\"')}")`
+      );
+    }
+
+    if (headerPattern) {
+      const requestedHeight = Number.parseInt(brandingAttribute(headerPatternSettings, "height"), 10);
+      if (Number.isFinite(requestedHeight)) {
+        headerPattern.style.height = `${Math.min(240, Math.max(20, requestedHeight))}px`;
+      }
+
+      const fit = brandingAttribute(headerPatternSettings, "fit").toLowerCase();
+      if (fitSizes[fit]) {
+        headerPattern.style.setProperty("--header-pattern-size", fitSizes[fit]);
+      }
+
+      const position = brandingAttribute(headerPatternSettings, "position");
+      if (position) {
+        headerPattern.style.setProperty("--header-pattern-position", position);
+      }
+    }
+
+    const stripSrc = safeLocalAssetPath(brandingAttribute(stripSettings, "src"));
+    if (strip && stripSrc) {
+      strip.style.setProperty("--strip-image", `url("${stripSrc.replace(/"/g, '\\"')}")`);
+    }
+
+    if (strip) {
+      const requestedHeight = Number.parseInt(brandingAttribute(stripSettings, "height"), 10);
+      if (Number.isFinite(requestedHeight)) {
+        strip.style.height = `${Math.min(300, Math.max(36, requestedHeight))}px`;
+      }
+
+      const fit = brandingAttribute(stripSettings, "fit").toLowerCase();
+      if (fitSizes[fit]) strip.style.setProperty("--strip-art-size", fitSizes[fit]);
+
+      const position = brandingAttribute(stripSettings, "position");
+      if (position) strip.style.setProperty("--strip-art-position", position);
+    }
+  } catch (err) {
+    console.error(`Branding load error from ${XML_DATA_BASE}branding.xml:`, err);
+  }
+}
+
+loadBranding();
+setInterval(loadBranding, 5 * 60 * 1000);
+
+// ===== LIVE CLOCK =====
+const dayNames = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+
+function updateClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  const minutes = now.getMinutes();
+  const meridiem = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12;
+
+  document.getElementById("clockTime").textContent = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+  document.getElementById("clockMeridiem").textContent = meridiem;
+  document.getElementById("clockDay").textContent = dayNames[now.getDay()];
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+// ===== TICKER =====
+const tickerContent = document.getElementById("tickerContent");
+const NEWSDATA_API_URL = "https://newsdata.io/api/1/latest?country=ph&apikey=pub_8c6cfdcc37a54f168a65dd4b7d0e3ed5";
+const DEFAULT_TICKER_MESSAGES = [
+  "BUILDING MAINTENANCE SCHEDULED 12AM TO 4AM",
+  "CHECK OUR WEBSITE FOR VENUE BOOKINGS"
+];
+
+function renderTickerMessages(messages) {
+  if (!tickerContent) return;
+
+  const cleanMessages = messages
+    .map(message => String(message || "").trim())
+    .filter(Boolean);
+
+  const tickerText = (cleanMessages.length ? cleanMessages : DEFAULT_TICKER_MESSAGES)
+    .map(escapeHTML)
+    .join("&nbsp;&nbsp;&bull;&nbsp;&nbsp;");
+
+  tickerContent.innerHTML = `<span>${tickerText}&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>`;
+  tickerContent.innerHTML += tickerContent.innerHTML;
+}
+
+async function fetchNewsTicker() {
+  try {
+    const res = await fetch(NEWSDATA_API_URL);
+    if (!res.ok) throw new Error(`NewsData error: ${res.status}`);
+
+    const data = await res.json();
+    const headlines = Array.isArray(data.results)
+      ? data.results.slice(0, 5).map(item => item.title)
+      : [];
+
+    renderTickerMessages(headlines);
+  } catch (err) {
+    renderTickerMessages(DEFAULT_TICKER_MESSAGES);
+  }
+}
+
+renderTickerMessages(DEFAULT_TICKER_MESSAGES);
+fetchNewsTicker();
+setInterval(fetchNewsTicker, 15 * 60 * 1000);
+
+// ===== WEATHER =====
+function weatherIconSVG(code) {
+  const sun = `
+    <circle cx="42" cy="39" r="25" fill="url(#weatherSun)"/>
+    <g stroke="#D6A03A" stroke-width="2.8" stroke-linecap="round" opacity="0.42">
+      <line x1="18" y1="21" x2="12" y2="16"/>
+      <line x1="65" y1="17" x2="71" y2="11"/>
+      <line x1="43" y1="5" x2="43" y2="12"/>
+      <line x1="14" y1="43" x2="7" y2="44"/>
+    </g>`;
+  const cloud = `
+    <g filter="url(#weatherShadow)">
+      <path d="M43 72h58c12.8 0 23.2-9 23.2-20.2 0-10.5-9.2-19.3-21.1-20.1C98.1 19.6 86 12 72.1 12c-15 0-27.6 9.1-30.7 21.5C30.7 34.9 22 43 22 52.8 22 63.4 31.4 72 43 72Z" fill="url(#weatherCloud)"/>
+      <path d="M42.6 72h58.9c12.2 0 22.2-8.4 22.2-19.4 0-2.2-.4-4.2-1.1-6.1-3.2 6.3-10.4 10.8-18.8 10.8H44.8c-7.9 0-14.9-3.6-18.9-9.1-2.2 3-3.4 6.4-3.4 10C22.5 66 31.4 72 42.6 72Z" fill="#7FC8EE" opacity="0.58"/>
+    </g>`;
+  const rain = `
+    <path d="M70 79c0 5.7-4.5 9.7-9.5 9.7S51 84.7 51 79c0-5.2 6.7-13.3 9.5-16.4C63.5 65.7 70 73.7 70 79Z" fill="#0B67D6"/>`;
+  const lightning = `
+    <path d="M128 48l-10 19h10l-12 20 26-28h-12l9-11h-11Z" fill="#F4C20D"/>
+    <path d="M15 57L8 70h7L7 84l17-20h-8l6-7h-7Z" fill="#F4C20D"/>`;
+  const defs = `
+    <defs>
+      <linearGradient id="weatherSun" x1="16" y1="13" x2="66" y2="64" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FFE05C"/>
+        <stop offset="1" stop-color="#F4B400"/>
+      </linearGradient>
+      <linearGradient id="weatherCloud" x1="44" y1="14" x2="99" y2="74" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#DDF4FF"/>
+        <stop offset="0.55" stop-color="#9FD7F5"/>
+        <stop offset="1" stop-color="#5AAFE0"/>
+      </linearGradient>
+      <filter id="weatherShadow" x="14" y="4" width="119" height="77" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#64748B" flood-opacity="0.22"/>
+      </filter>
+    </defs>`;
+
+  if (code === 0) return `${defs}${sun}`;
+  if ([1, 2].includes(code)) return `${defs}${sun}${cloud}`;
+  if ([3, 45, 48].includes(code)) return `${defs}${cloud}`;
+  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return `${defs}${sun}${cloud}${rain}`;
+  if ([95, 96, 99].includes(code)) return `${defs}${sun}${cloud}${lightning}`;
+  return `${defs}${sun}${cloud}`;
+}
+
+async function fetchWeather() {
+  try {
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=14.6760&longitude=121.0437&current=temperature_2m,weather_code&timezone=Asia/Manila&_=${Date.now()}`;
+    const res = await fetch(weatherUrl, { cache: "no-store" });
+    const data = await res.json();
+    const weatherCode = data.current.weather_code;
+
+    document.getElementById("weatherCurrent").textContent =
+      Math.round(data.current.temperature_2m);
+
+    const iconEl = document.querySelector(".weather-icon");
+    if (iconEl) iconEl.innerHTML = weatherIconSVG(weatherCode);
+  } catch (err) {
+    console.error("Weather load error:", err);
+  }
+}
+
+fetchWeather();
+setInterval(fetchWeather, 2 * 60 * 1000);
+
+// ===== FOOTER LOADER =====
+function footerText(parent, tagName) {
+  const child = Array.from(parent.children).find(el => el.localName === tagName);
+  return child ? child.textContent.trim() : "";
+}
+
+function renderFooterColumn(column) {
+  const title = escapeHTML(column.getAttribute("title") || footerText(column, "title"));
+  const theme = escapeHTML(column.getAttribute("theme") || "");
+  const headClass = theme ? ` info-head--${theme}` : "";
+  const quickDial = Array.from(column.children).find(el => el.localName === "quickDial");
+  const items = Array.from(column.children).filter(el => el.localName === "item");
+
+  return `
+    <div class="info-col">
+      <div class="info-head${headClass}">${title}</div>
+      ${quickDial ? `
+        <div class="quick-dial">
+          <span>${escapeHTML(quickDial.getAttribute("label") || footerText(quickDial, "label"))}</span>
+          <strong>${escapeHTML(quickDial.getAttribute("value") || footerText(quickDial, "value"))}</strong>
+        </div>
+      ` : ""}
+      ${items.map(item => {
+        const label = footerText(item, "label");
+        const value = footerText(item, "value");
+        const email = footerText(item, "email");
+        const note = footerText(item, "note");
+
+        return `
+          <div class="info-block">
+            ${label ? `<span class="info-label">${escapeHTML(label)}</span>` : ""}
+            ${value ? `<span class="info-value">${escapeHTML(value)}</span>` : ""}
+            ${email ? `<a class="info-link" href="mailto:${escapeHTML(email)}">${escapeHTML(email)}</a>` : ""}
+            ${note ? `<span class="info-sub">${escapeHTML(note)}</span>` : ""}
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+async function loadFooter() {
+  const info = document.querySelector(".info");
+  if (!info) return;
+
+  try {
+    const text = await loadXMLText("footer.xml");
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+    const columns = Array.from(xml.querySelectorAll("column"));
+
+    if (columns.length === 0) return;
+    info.innerHTML = columns.map(renderFooterColumn).join("");
+  } catch (err) {
+    console.error(`Footer load error from ${XML_DATA_BASE}footer.xml:`, err);
+  }
+}
+
+loadFooter();
+
+// ===== SMOOTH FADE VIDEO CYCLER =====
+const heroVideo = document.querySelector('.hero-bg');
+const HERO_FADE_OUT_MS = 1200;
+const HERO_FADE_IN_MS = 3000;
+let currentVideoIndex = 0;
+let isTransitioning = false;
+
+async function loadVideos() {
+  try {
+    const text = await loadXMLText("videos.xml");
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+
+    const videoList = Array.from(xml.getElementsByTagName('video')).map(v => ({
+      src: v.getAttribute('src'),
+      poster: v.getAttribute('poster') || ''
+    }));
+
+    if (videoList.length === 0) return;
+
+    function playNextVideo() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const nextVideo = videoList[currentVideoIndex];
+
+      heroVideo.style.transition = `opacity ${HERO_FADE_OUT_MS}ms ease`;
+      heroVideo.style.opacity = '0';
+
+      setTimeout(() => {
+        heroVideo.poster = nextVideo.poster;
+        heroVideo.src = nextVideo.src;
+        heroVideo.load();
+
+        heroVideo.play().catch(() => {});
+
+        heroVideo.style.transition = `opacity ${HERO_FADE_IN_MS}ms ease`;
+        heroVideo.style.opacity = '1';
+
+        currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+        isTransitioning = false;
+      }, HERO_FADE_OUT_MS);
+    }
+
+    const first = videoList[0];
+    heroVideo.poster = first.poster;
+    heroVideo.src = first.src;
+    heroVideo.load();
+    heroVideo.play().catch(() => {});
+    currentVideoIndex = 1;
+
+    heroVideo.removeAttribute('loop');
+    heroVideo.addEventListener('ended', playNextVideo);
+
+  } catch (err) {
+    console.error(`Failed to load ${XML_DATA_BASE}videos.xml:`, err);
+  }
+}
+
+loadVideos();
+
+// ===== DIRECTORY LOADER =====
+const DIRECTORY_ROTATE_MS = 10000;
+const DIRECTORY_FADE_MS = 650;
+const DIRECTORY_ROWS_PER_PAGE = 6;
+const DIRECTORY_FLOOR_IMAGES = {
+  "8F": "assets/images/floor-8.svg",
+  "9F": "assets/images/floor-9.svg",
+  "10F": "assets/images/floor-10.svg",
+  "11F": "assets/images/floor-11.svg",
+  "12F": "assets/images/floor-12.svg",
+  "13F": "assets/images/floor-13.svg",
+  "14F": "assets/images/floor-14.svg"
+};
+let directoryLevels = [];
+let directoryPages = [];
+let currentDirectoryPageIndex = 0;
+let isDirectoryTransitioning = false;
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
+}
+
+function childText(parent, tagName) {
+  const child = Array.from(parent.children).find(el => el.localName === tagName);
+  return child ? child.textContent.trim() : '';
+}
+
+function safeLocalAssetPath(value) {
+  const path = String(value || '').trim().replace(/\\/g, '/');
+  if (!path || path.startsWith('/') || path.includes('..') || /^[a-z]+:/i.test(path)) return '';
+  return path;
+}
+
+function floorImagePath(floor) {
+  return DIRECTORY_FLOOR_IMAGES[String(floor || '').trim().toUpperCase()] || '';
+}
+
+function parseDirectoryLevel(level) {
+  return {
+    name: level.getAttribute('name') || childText(level, 'name'),
+    date: level.getAttribute('date') || childText(level, 'date'),
+    items: Array.from(level.querySelectorAll('item')).map(item => ({
+      floor: childText(item, 'floor'),
+      title: childText(item, 'title'),
+      subtitle: childText(item, 'subtitle'),
+      icon: childText(item, 'icon'),
+      image: safeLocalAssetPath(childText(item, 'image')) || floorImagePath(childText(item, 'floor')),
+      imageAlt: childText(item, 'imageAlt'),
+      date: item.getAttribute('date') || childText(item, 'date'),
+      featured: item.getAttribute('featured') === 'true'
+    }))
+  };
+}
+
+function buildDirectoryPages(levels) {
+  const rows = levels.flatMap(level => level.items.map(item => ({
+    ...item,
+    levelName: level.name,
+    levelDate: level.date
+  })));
+
+  const pages = [];
+  for (let i = 0; i < rows.length; i += DIRECTORY_ROWS_PER_PAGE) {
+    pages.push(rows.slice(i, i + DIRECTORY_ROWS_PER_PAGE));
+  }
+
+  return pages;
+}
+
+function renderDirectoryPage() {
+  const dir = document.getElementById('directory');
+  if (!dir || directoryPages.length === 0) return;
+
+  const pageRows = directoryPages[currentDirectoryPageIndex % directoryPages.length];
+  dir.innerHTML = `
+    <div class="level-divider">
+      <span>BUILDING DIRECTORY</span>
+    </div>
+    <div class="directory-page">
+      ${pageRows.map(item => `
+        <div class="row ${item.featured ? 'row--featured' : ''}">
+          <div class="badge">
+            <div class="badge-label">FLOOR</div>
+            <div class="badge-num">${escapeHTML(item.floor)}</div>
+          </div>
+          <div class="row-body">
+            <div class="row-heading">
+              <div class="row-title">${escapeHTML(item.title)}</div>
+            </div>
+            ${item.subtitle ? `<div class="row-subtitle">${escapeHTML(item.subtitle)}</div>` : ''}
+          </div>
+          <div class="row-icon">
+            ${item.image
+              ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.imageAlt || item.title)}">`
+              : escapeHTML(item.icon)}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function showNextDirectoryLevel() {
+  const dir = document.getElementById('directory');
+  if (!dir || directoryPages.length <= 1 || isDirectoryTransitioning) return;
+
+  isDirectoryTransitioning = true;
+  dir.classList.add('is-fading-out');
+
+  setTimeout(() => {
+    currentDirectoryPageIndex = (currentDirectoryPageIndex + 1) % directoryPages.length;
+    renderDirectoryPage();
+
+    requestAnimationFrame(() => {
+      dir.classList.remove('is-fading-out');
+      isDirectoryTransitioning = false;
+    });
+  }, DIRECTORY_FADE_MS);
+}
+
+function applyDirectoryLevels(levels) {
+  directoryLevels = levels;
+  directoryPages = buildDirectoryPages(directoryLevels);
+  currentDirectoryPageIndex = directoryPages.length
+    ? currentDirectoryPageIndex % directoryPages.length
+    : 0;
+  renderDirectoryPage();
+}
+
+async function loadDirectory() {
+  try {
+    const text = await loadXMLText("directory.xml");
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+    const levels = Array.from(xml.querySelectorAll('level')).map(parseDirectoryLevel);
+    if (levels.length === 0) throw new Error("No directory levels found");
+
+    applyDirectoryLevels(levels);
+  } catch (err) {
+    console.error("Directory XML load error:", err);
+  }
+}
+
+loadDirectory();
+setInterval(showNextDirectoryLevel, DIRECTORY_ROTATE_MS);
+setInterval(loadDirectory, 5 * 60 * 1000);
+</script>
+</body>
+</html>

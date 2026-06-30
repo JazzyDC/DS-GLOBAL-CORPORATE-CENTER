@@ -18,6 +18,90 @@ function scaleToFit() {
 scaleToFit();
 window.addEventListener("resize", scaleToFit);
 
+// ===== XML BRANDING =====
+function brandingAttribute(element, name) {
+  return element ? String(element.getAttribute(name) || "").trim() : "";
+}
+
+async function loadBranding() {
+  try {
+    const res = await fetch(`${XML_DATA_BASE}branding.xml`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Branding request failed: ${res.status}`);
+
+    const text = await res.text();
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+    if (xml.querySelector("parsererror")) throw new Error("Invalid branding XML");
+
+    const logoSettings = xml.querySelector("logo");
+    const headerPatternSettings = xml.querySelector("headerPattern");
+    const stripSettings = xml.querySelector("strip");
+    const logo = document.querySelector(".brand-logo");
+    const headerPattern = document.querySelector(".header-pattern");
+    const strip = document.querySelector(".strip");
+
+    const logoSrc = safeLocalAssetPath(brandingAttribute(logoSettings, "src"));
+    if (logo && logoSrc) logo.src = logoSrc;
+
+    const logoAlt = brandingAttribute(logoSettings, "alt");
+    if (logo && logoAlt) logo.alt = logoAlt;
+
+    const fitSizes = {
+      cover: "cover",
+      contain: "contain",
+      stretch: "100% 100%",
+      natural: "auto"
+    };
+
+    const headerPatternSrc = safeLocalAssetPath(brandingAttribute(headerPatternSettings, "src"));
+    if (headerPattern && headerPatternSrc) {
+      headerPattern.style.setProperty(
+        "--header-pattern-image",
+        `url("${headerPatternSrc.replace(/"/g, '\\"')}")`
+      );
+    }
+
+    if (headerPattern) {
+      const requestedHeight = Number.parseInt(brandingAttribute(headerPatternSettings, "height"), 10);
+      if (Number.isFinite(requestedHeight)) {
+        headerPattern.style.height = `${Math.min(240, Math.max(20, requestedHeight))}px`;
+      }
+
+      const fit = brandingAttribute(headerPatternSettings, "fit").toLowerCase();
+      if (fitSizes[fit]) {
+        headerPattern.style.setProperty("--header-pattern-size", fitSizes[fit]);
+      }
+
+      const position = brandingAttribute(headerPatternSettings, "position");
+      if (position) {
+        headerPattern.style.setProperty("--header-pattern-position", position);
+      }
+    }
+
+    const stripSrc = safeLocalAssetPath(brandingAttribute(stripSettings, "src"));
+    if (strip && stripSrc) {
+      strip.style.setProperty("--strip-image", `url("${stripSrc.replace(/"/g, '\\"')}")`);
+    }
+
+    if (strip) {
+      const requestedHeight = Number.parseInt(brandingAttribute(stripSettings, "height"), 10);
+      if (Number.isFinite(requestedHeight)) {
+        strip.style.height = `${Math.min(300, Math.max(36, requestedHeight))}px`;
+      }
+
+      const fit = brandingAttribute(stripSettings, "fit").toLowerCase();
+      if (fitSizes[fit]) strip.style.setProperty("--strip-art-size", fitSizes[fit]);
+
+      const position = brandingAttribute(stripSettings, "position");
+      if (position) strip.style.setProperty("--strip-art-position", position);
+    }
+  } catch (err) {
+    console.error(`Branding load error from ${XML_DATA_BASE}branding.xml:`, err);
+  }
+}
+
+loadBranding();
+setInterval(loadBranding, 5 * 60 * 1000);
+
 // ===== LIVE CLOCK =====
 const dayNames = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
 
@@ -38,7 +122,7 @@ setInterval(updateClock, 1000);
 
 // ===== TICKER =====
 const tickerContent = document.getElementById("tickerContent");
-const NEWSDATA_API_URL = "https://newsdata.io/api/1/latest?country=ph&apikey=pub_19040c1fa9bd4eaf88c6682a62cecbcc";
+const NEWSDATA_API_URL = "https://newsdata.io/api/1/latest?country=ph&apikey=pub_8c6cfdcc37a54f168a65dd4b7d0e3ed5";
 const DEFAULT_TICKER_MESSAGES = [
   "BUILDING MAINTENANCE SCHEDULED 12AM TO 4AM",
   "CHECK OUR WEBSITE FOR VENUE BOOKINGS"
@@ -205,6 +289,8 @@ loadFooter();
 
 // ===== SMOOTH FADE VIDEO CYCLER =====
 const heroVideo = document.querySelector('.hero-bg');
+const HERO_FADE_OUT_MS = 1200;
+const HERO_FADE_IN_MS = 3000;
 let currentVideoIndex = 0;
 let isTransitioning = false;
 
@@ -228,7 +314,7 @@ async function loadVideos() {
       const nextVideo = videoList[currentVideoIndex];
 
       // Start fade out
-      heroVideo.style.transition = 'opacity 1.2s ease';
+      heroVideo.style.transition = `opacity ${HERO_FADE_OUT_MS}ms ease`;
       heroVideo.style.opacity = '0';
 
       setTimeout(() => {
@@ -238,12 +324,13 @@ async function loadVideos() {
 
         heroVideo.play().catch(() => {});
 
-        // Fade in
+        // Slowly fade the next video in
+        heroVideo.style.transition = `opacity ${HERO_FADE_IN_MS}ms ease`;
         heroVideo.style.opacity = '1';
 
         currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
         isTransitioning = false;
-      }, 1200); // Wait for fade out
+      }, HERO_FADE_OUT_MS);
     }
 
     // Start first video
@@ -269,6 +356,15 @@ loadVideos();
 const DIRECTORY_ROTATE_MS = 10000;
 const DIRECTORY_FADE_MS = 650;
 const DIRECTORY_ROWS_PER_PAGE = 6;
+const DIRECTORY_FLOOR_IMAGES = {
+  "8F": "assets/images/floor-8.svg",
+  "9F": "assets/images/floor-9.svg",
+  "10F": "assets/images/floor-10.svg",
+  "11F": "assets/images/floor-11.svg",
+  "12F": "assets/images/floor-12.svg",
+  "13F": "assets/images/floor-13.svg",
+  "14F": "assets/images/floor-14.svg"
+};
 let directoryLevels = [];
 let directoryPages = [];
 let currentDirectoryPageIndex = 0;
@@ -289,6 +385,16 @@ function childText(parent, tagName) {
   return child ? child.textContent.trim() : '';
 }
 
+function safeLocalAssetPath(value) {
+  const path = String(value || '').trim().replace(/\\/g, '/');
+  if (!path || path.startsWith('/') || path.includes('..') || /^[a-z]+:/i.test(path)) return '';
+  return path;
+}
+
+function floorImagePath(floor) {
+  return DIRECTORY_FLOOR_IMAGES[String(floor || '').trim().toUpperCase()] || '';
+}
+
 function parseDirectoryLevel(level) {
   return {
     name: level.getAttribute('name') || childText(level, 'name'),
@@ -298,6 +404,8 @@ function parseDirectoryLevel(level) {
       title: childText(item, 'title'),
       subtitle: childText(item, 'subtitle'),
       icon: childText(item, 'icon'),
+      image: safeLocalAssetPath(childText(item, 'image')) || floorImagePath(childText(item, 'floor')),
+      imageAlt: childText(item, 'imageAlt'),
       date: item.getAttribute('date') || childText(item, 'date'),
       featured: item.getAttribute('featured') === 'true'
     }))
@@ -341,7 +449,11 @@ function renderDirectoryPage() {
             </div>
             ${item.subtitle ? `<div class="row-subtitle">${escapeHTML(item.subtitle)}</div>` : ''}
           </div>
-          <div class="row-icon">${escapeHTML(item.icon)}</div>
+          <div class="row-icon">
+            ${item.image
+              ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.imageAlt || item.title)}">`
+              : escapeHTML(item.icon)}
+          </div>
         </div>
       `).join('')}
     </div>
@@ -366,17 +478,28 @@ function showNextDirectoryLevel() {
   }, DIRECTORY_FADE_MS);
 }
 
+function applyDirectoryLevels(levels) {
+  directoryLevels = levels;
+  directoryPages = buildDirectoryPages(directoryLevels);
+  currentDirectoryPageIndex = directoryPages.length
+    ? currentDirectoryPageIndex % directoryPages.length
+    : 0;
+  renderDirectoryPage();
+}
+
 async function loadDirectory() {
   try {
     const res = await fetch(`${XML_DATA_BASE}directory.xml`);
+    if (!res.ok) throw new Error(`Directory request failed: ${res.status}`);
+
     const text = await res.text();
     const xml = new DOMParser().parseFromString(text, "text/xml");
-    directoryLevels = Array.from(xml.querySelectorAll('level')).map(parseDirectoryLevel);
-    directoryPages = buildDirectoryPages(directoryLevels);
-    currentDirectoryPageIndex = directoryPages.length ? currentDirectoryPageIndex % directoryPages.length : 0;
-    renderDirectoryPage();
+    const levels = Array.from(xml.querySelectorAll('level')).map(parseDirectoryLevel);
+    if (levels.length === 0) throw new Error("No directory levels found");
+
+    applyDirectoryLevels(levels);
   } catch (err) {
-    console.error("Directory load error:", err);
+    console.error("Directory XML load error:", err);
   }
 }
 

@@ -2,7 +2,7 @@
   --navy: #2E318E;           
   --navy-light: #2E318E;
   --ink: #0F2549;
-  --muted: #8A9EB9;
+  --muted: #6687b4;
   --line: #E4E9F2;
   --bg: #F4F7FC;
   --white: #FFFFFF;
@@ -37,11 +37,31 @@ html, body{
   width: 1080px;
   height: 1920px;
   flex-shrink: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(240, 249, 252, 0.28), rgba(240, 249, 252, 0.28)),
+    url("assets/images/Suggested Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transform-origin: center center;
+}
+
+.header-pattern{
+  --header-pattern-image: url("assets/images/Pattern DS Global Holdings-05.png");
+  --header-pattern-size: cover;
+  --header-pattern-position: center;
+  height: 50px;
+  flex-shrink: 0;
+  background-color: #FFFFFF;
+  background-image: var(--header-pattern-image);
+  background-repeat: no-repeat;
+  background-position: var(--header-pattern-position);
+  background-size: var(--header-pattern-size);
+  border-bottom: 3px solid var(--navy);
 }
 
 /* ===== HEADER ===== */
@@ -189,6 +209,12 @@ html, body{
   flex-direction: column;
   justify-content: center;
   gap: 26px;
+  background-image:
+    linear-gradient(rgba(235, 246, 252, 0.16), rgba(255, 239, 211, 0.06)),
+    url("assets/images/Suggested Background.jpg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
 }
 
 .directory.is-fading-out .directory-page{
@@ -219,15 +245,20 @@ html, body{
 .level-divider::after{
   content: "";
   flex: 1;
-  height: 1px;
-  background: #E2E5EA;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #F5A623);
+}
+
+.level-divider::after{
+  background: linear-gradient(90deg, #F5A623, transparent);
 }
 
 .level-divider span{
   font-size: 19px;
   font-weight: 900;
   letter-spacing: 4.5px;
-  color: var(--navy);
+  color: #FFFFFF;
+  text-shadow: 0 2px 5px rgba(15, 37, 73, 0.55);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -337,6 +368,13 @@ html, body{
   font-size: 42px;
 }
 
+.row-icon img{
+  width: 72px;
+  height: 72px;
+  display: block;
+  object-fit: contain;
+}
+
 @keyframes directoryFadeIn{
   from{
     opacity: 0;
@@ -439,23 +477,12 @@ html, body{
   align-items: stretch;
   height: 68px;
   flex-shrink: 0;
-}
-
-.ticker-tag{
-  background: var(--accent-cyan);
-  color: #2E318E;
-  font-size: 19px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  padding: 0 30px;
-  flex-shrink: 0;
+  background: #000;
 }
 
 .ticker-track{
   flex: 1;
-  background: var(--navy-light);
+  background: #000;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -465,13 +492,14 @@ html, body{
   display: flex;
   white-space: nowrap;
   animation: scrollTicker 90s linear infinite;
+  will-change: transform;
 }
 
 .ticker-content span{
   font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  color: var(--white);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #FFF;
   padding-left: 30px;
 }
 
@@ -482,13 +510,16 @@ html, body{
 
 /* ===== BOTTOM STRIP ===== */
 .strip{
-  height: 36px;
-  background: var(--footer-navy);
-  background-image:
-    radial-gradient(circle, var(--accent-cyan) 2.6px, transparent 3.6px),
-    radial-gradient(circle, #3B82F6 2.1px, transparent 3px);
-  background-size: 40px 40px, 40px 40px;
-  background-position: 0 10px, 20px 27px;
-  border-bottom: 7px solid var(--accent-cyan);
+  --strip-image: url("assets/images/Pattern DS Global Holdings-04.png");
+  --strip-art-size: cover;
+  --strip-art-position: center;
+  height: 50px;
+  background-color: var(--footer-navy);
+  background-image: var(--strip-image);
+  background-repeat: no-repeat;
+  background-size: var(--strip-art-size);
+  background-position: var(--strip-art-position);
+  border-bottom: 5px solid var(--accent-cyan);
   flex-shrink: 0;
 }
+
