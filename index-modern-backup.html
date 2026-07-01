@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DS Global Corporate Center - Directory</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy: #2E318E;           
@@ -31,7 +29,7 @@ html, body{
   height: 100%;
   overflow: hidden;
   background: var(--navy);
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #stage{
@@ -137,7 +135,7 @@ html, body{
 }
 
 .weather-temp{
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
   font-weight: 800;
   line-height: 1;
@@ -167,14 +165,14 @@ html, body{
 }
 
 .clock-time{
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
   font-size: 52px;
   color: var(--navy);
 }
 
 .clock-meridiem{
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
   font-size: 34px;
   color: var(--navy);
@@ -275,7 +273,7 @@ html, body{
 }
 
 .level-divider small{
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 1.2px;
@@ -313,7 +311,7 @@ html, body{
 }
 
 .badge-num{
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
   font-size: 36px;
 }
@@ -341,7 +339,7 @@ html, body{
 }
 
 .row-title{
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 30px;
   color: var(--ink);
@@ -801,7 +799,7 @@ setInterval(updateClock, 1000);
 
 // ===== TICKER =====
 const tickerContent = document.getElementById("tickerContent");
-const NEWSDATA_API_URL = "https://newsdata.io/api/1/latest?country=ph&apikey=pub_8c6cfdcc37a54f168a65dd4b7d0e3ed5";
+const NEWSDATA_API_URL = "";
 const DEFAULT_TICKER_MESSAGES = [
   "BUILDING MAINTENANCE SCHEDULED 12AM TO 4AM",
   "CHECK OUR WEBSITE FOR VENUE BOOKINGS"
@@ -824,6 +822,11 @@ function renderTickerMessages(messages) {
 
 async function fetchNewsTicker() {
   try {
+    if (!NEWSDATA_API_URL) {
+      renderTickerMessages(DEFAULT_TICKER_MESSAGES);
+      return;
+    }
+
     const res = await fetch(NEWSDATA_API_URL);
     if (!res.ok) throw new Error(`NewsData error: ${res.status}`);
 
@@ -888,7 +891,14 @@ function weatherIconSVG(code) {
 
 async function fetchWeather() {
   try {
-    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=14.6760&longitude=121.0437&current=temperature_2m,weather_code&timezone=Asia/Manila&_=${Date.now()}`;
+    const WEATHER_API_BASE = "";
+    if (!WEATHER_API_BASE) {
+      const iconEl = document.querySelector(".weather-icon");
+      if (iconEl) iconEl.innerHTML = weatherIconSVG(2);
+      return;
+    }
+
+    const weatherUrl = `${WEATHER_API_BASE}?latitude=14.6760&longitude=121.0437&current=temperature_2m,weather_code&timezone=Asia/Manila&_=${Date.now()}`;
     const res = await fetch(weatherUrl, { cache: "no-store" });
     const data = await res.json();
     const weatherCode = data.current.weather_code;
