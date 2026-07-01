@@ -34,6 +34,15 @@ function Get-ContentType {
 function Resolve-DashboardPath {
   param([string]$RequestPath)
 
+  if ($RequestPath -match "^[a-z]+://") {
+    try {
+      $RequestPath = ([System.Uri]$RequestPath).AbsolutePath
+    }
+    catch {
+      $RequestPath = "/"
+    }
+  }
+
   $Path = [System.Uri]::UnescapeDataString($RequestPath)
   $Path = $Path -replace "\\", "/"
   $Path = $Path.TrimStart("/")
@@ -145,7 +154,10 @@ while ($true) {
     $Stream.Write($Bytes, 0, $Bytes.Length)
   }
   catch {
-    Write-Host "Request error: $($_.Exception.Message)"
+    $Message = $_.Exception.Message
+    if ($Message -notmatch "forcibly closed|aborted|transport connection") {
+      Write-Host "Request error: $Message"
+    }
   }
   finally {
     $Client.Close()
