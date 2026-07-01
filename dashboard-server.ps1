@@ -63,13 +63,35 @@ function Resolve-DashboardPath {
   return $FullPath
 }
 
-$Listener = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Loopback, $Port)
-$Listener.Start()
+$Listener = $null
+$StartedPort = $Port
+
+for ($TryPort = $Port; $TryPort -le ($Port + 10); $TryPort++) {
+  try {
+    $Listener = New-Object System.Net.Sockets.TcpListener([System.Net.IPAddress]::Loopback, $TryPort)
+    $Listener.Start()
+    $StartedPort = $TryPort
+    break
+  }
+  catch {
+    if ($Listener -ne $null) {
+      try { $Listener.Stop() } catch {}
+    }
+    $Listener = $null
+  }
+}
+
+if ($Listener -eq $null) {
+  Write-Host "Could not start the local dashboard server."
+  Write-Host "Please restart the media player, then run START-DASHBOARD.bat again."
+  Write-Host "If it still fails, change data\server.xml port to 8080."
+  exit 1
+}
 
 Write-Host "Starting DS Global Corporate Center Dashboard..."
 Write-Host ""
-Write-Host "Dashboard running at http://127.0.0.1:$Port/"
-Write-Host "OpenKiosk URL: http://127.0.0.1:$Port/"
+Write-Host "Dashboard running at http://127.0.0.1:$StartedPort/"
+Write-Host "OpenKiosk URL: http://127.0.0.1:$StartedPort/"
 Write-Host ""
 Write-Host "Keep this window open. Press Ctrl+C to stop."
 
