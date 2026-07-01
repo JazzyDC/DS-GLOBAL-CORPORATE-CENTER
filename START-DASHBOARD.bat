@@ -1,6 +1,4 @@
 @echo off
 cd /d "%~dp0"
-echo Starting DS Global Corporate Center Dashboard...
-echo.
-node dashboard-server.js
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0dashboard-server.ps1"
 pause
