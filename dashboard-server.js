@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 
-const START_PORT = 8000;
 const ROOT = __dirname;
+const SERVER_CONFIG = path.join(ROOT, "data", "server.xml");
 const MIME_TYPES = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -19,10 +19,36 @@ const MIME_TYPES = {
   ".mp4": "video/mp4"
 };
 
+function xmlAttribute(xml, name) {
+  const match = xml.match(new RegExp(`${name}\\s*=\\s*["']([^"']+)["']`, "i"));
+  return match ? match[1].trim() : "";
+}
+
+function loadServerConfig() {
+  const xml = fs.readFileSync(SERVER_CONFIG, "utf8");
+  const configuredPort = Number.parseInt(xmlAttribute(xml, "port"), 10);
+  const configuredPage = xmlAttribute(xml, "defaultPage");
+
+  if (!Number.isFinite(configuredPort)) {
+    throw new Error(`${SERVER_CONFIG} must include a numeric port attribute.`);
+  }
+
+  if (!configuredPage) {
+    throw new Error(`${SERVER_CONFIG} must include a defaultPage attribute.`);
+  }
+
+  return {
+    port: configuredPort,
+    defaultPage: configuredPage
+  };
+}
+
+const serverConfig = loadServerConfig();
+
 const server = http.createServer((request, response) => {
   const requestPath = decodeURIComponent(new URL(request.url, `http://${request.headers.host}`).pathname);
   const relativePath = requestPath === "/"
-    ? "index.html"
+    ? serverConfig.defaultPage
     : requestPath.replace(/^\/+/, "");
   const filePath = path.resolve(ROOT, relativePath);
 
@@ -73,4 +99,4 @@ function startServer(port) {
 });
 }
 
-startServer(START_PORT);
+startServer(serverConfig.port);

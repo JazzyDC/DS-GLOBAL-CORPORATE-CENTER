@@ -6,6 +6,13 @@
     alt="DS Global Corporate Center Logo"
   />
 
+  <!-- PAGE BACKGROUND: Main screen and directory background artwork. -->
+  <background
+    src="assets/images/Suggested Background.jpg"
+    fit="cover"
+    position="center"
+  />
+
   <!-- TOP HEADER PATTERN: Banner shown above the logo, weather, and clock. -->
   <headerPattern
     src="assets/images/Pattern DS Global Holdings-05.png"

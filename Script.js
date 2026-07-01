@@ -359,11 +359,7 @@ const DIRECTORY_ROWS_PER_PAGE = 6;
 const DIRECTORY_FLOOR_IMAGES = {
   "8F": "assets/images/floor-8.svg",
   "9F": "assets/images/floor-9.svg",
-  "10F": "assets/images/floor-10.svg",
-  "11F": "assets/images/floor-11.svg",
-  "12F": "assets/images/floor-12.svg",
-  "13F": "assets/images/floor-13.svg",
-  "14F": "assets/images/floor-14.svg"
+  "10F": "assets/images/floor-10.svg"
 };
 let directoryLevels = [];
 let directoryPages = [];

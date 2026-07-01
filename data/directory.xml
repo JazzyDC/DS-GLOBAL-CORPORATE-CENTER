@@ -7,38 +7,115 @@
 
     The image is used when present; otherwise <icon> is shown.
   -->
-  <level name="LEVEL 8F" date="JUNE 18, 2026">
+  <level name="BASEMENT" date="JULY 01, 2026">
+    <item>
+      <floor>B</floor>
+      <title>Basement Parking</title>
+      <subtitle>Tenant and Visitor Parking</subtitle>
+      <icon>&#128663;</icon>
+    </item>
+    <item>
+      <floor>B</floor>
+      <title>Utility Rooms</title>
+      <subtitle>Electrical, Pump, and Building Services</subtitle>
+      <icon>&#9881;</icon>
+    </item>
+  </level>
+
+  <level name="GROUND FLOOR" date="JULY 01, 2026">
+    <item featured="true">
+      <floor>GF</floor>
+      <title>Main Lobby</title>
+      <subtitle>Reception, Visitor Assistance, and Waiting Area</subtitle>
+      <icon>&#127970;</icon>
+    </item>
+    <item>
+      <floor>GF</floor>
+      <title>Security Desk</title>
+      <subtitle>Access Control and Building Assistance</subtitle>
+      <icon>&#128737;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 2F" date="JULY 01, 2026">
+    <item>
+      <floor>2F</floor>
+      <title>Tenant Offices</title>
+      <subtitle>Office Suites and Shared Work Areas</subtitle>
+      <icon>&#128188;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 3F" date="JULY 01, 2026">
+    <item>
+      <floor>3F</floor>
+      <title>Tenant Offices</title>
+      <subtitle>Office Suites and Shared Work Areas</subtitle>
+      <icon>&#128188;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 4F" date="JULY 01, 2026">
+    <item>
+      <floor>4F</floor>
+      <title>Tenant Offices</title>
+      <subtitle>Office Suites and Shared Work Areas</subtitle>
+      <icon>&#128188;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 5F" date="JULY 01, 2026">
+    <item>
+      <floor>5F</floor>
+      <title>Tenant Offices</title>
+      <subtitle>Office Suites and Shared Work Areas</subtitle>
+      <icon>&#128188;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 6F" date="JULY 01, 2026">
+    <item>
+      <floor>6F</floor>
+      <title>Tenant Offices</title>
+      <subtitle>Office Suites and Shared Work Areas</subtitle>
+      <icon>&#128188;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 7F" date="JULY 01, 2026">
+    <item>
+      <floor>7F</floor>
+      <title>Tenant Offices</title>
+      <subtitle>Office Suites and Shared Work Areas</subtitle>
+      <icon>&#128188;</icon>
+    </item>
+  </level>
+
+  <level name="LEVEL 8F" date="JULY 01, 2026">
     <item>
       <floor>8F</floor>
       <title>Elevator Lobby</title>
       <image>assets/images/floor-8.svg</image>
       <imageAlt>Level 8 floor image</imageAlt>
-      <icon>↓</icon>
+      <icon>&#8595;</icon>
     </item>
     <item>
       <floor>8F</floor>
       <title>Common Hallway</title>
       <image>assets/images/floor-8.svg</image>
       <imageAlt>Level 8 floor image</imageAlt>
-      <icon>👤</icon>
-    </item>
-    <item>
-      <floor>8F</floor>
-      <title>Fire Exits &amp; Emergency</title>
-      <image>assets/images/floor-8.svg</image>
-      <imageAlt>Level 8 floor image</imageAlt>
-      <icon>✳</icon>
+      <icon>&#128100;</icon>
     </item>
   </level>
 
-  <level name="LEVEL 9F" date="JUNE 19, 2026">
+  <level name="LEVEL 9F" date="JULY 01, 2026">
     <item featured="true">
       <floor>9F</floor>
       <title>The Top</title>
       <subtitle>(Second Level)</subtitle>
       <image>assets/images/floor-9.svg</image>
       <imageAlt>Level 9 floor image</imageAlt>
-      <icon>⭐</icon>
+      <icon>&#11088;</icon>
     </item>
     <item>
       <floor>9F</floor>
@@ -46,10 +123,11 @@
       <subtitle>A/V Suite, Projectors, Mobile Stage, Executive Partitions</subtitle>
       <image>assets/images/floor-9.svg</image>
       <imageAlt>Level 9 floor image</imageAlt>
-      <icon>👥</icon>
+      <icon>&#128101;</icon>
     </item>
   </level>
-  <level name="LEVEL 10F" date="JUNE 20, 2026">
+
+  <level name="LEVEL 10F" date="JULY 01, 2026">
     <item>
       <floor>10F</floor>
       <title>Executive Offices</title>
@@ -73,98 +151,6 @@
       <image>assets/images/floor-10.svg</image>
       <imageAlt>Level 10 floor image</imageAlt>
       <icon>&#128196;</icon>
-    </item>
-  </level>
-
-  <level name="LEVEL 11F" date="JUNE 21, 2026">
-    <item featured="true">
-      <floor>11F</floor>
-      <title>Training Hall</title>
-      <subtitle>Seminars, Workshops, Briefings</subtitle>
-      <image>assets/images/floor-11.svg</image>
-      <imageAlt>Level 11 floor image</imageAlt>
-      <icon>&#127891;</icon>
-    </item>
-    <item>
-      <floor>11F</floor>
-      <title>Board Room</title>
-      <subtitle>Conference Table, Display System, Video Call Setup</subtitle>
-      <image>assets/images/floor-11.svg</image>
-      <imageAlt>Level 11 floor image</imageAlt>
-      <icon>&#128101;</icon>
-    </item>
-  </level>
-
-  <level name="LEVEL 12F" date="JUNE 22, 2026">
-    <item>
-      <floor>12F</floor>
-      <title>Operations Center</title>
-      <subtitle>Daily Coordination, Monitoring, Team Dispatch</subtitle>
-      <image>assets/images/floor-12.svg</image>
-      <imageAlt>Level 12 floor image</imageAlt>
-      <icon>&#9881;</icon>
-    </item>
-    <item>
-      <floor>12F</floor>
-      <title>Accounting Office</title>
-      <subtitle>Billing, Collections, Finance Assistance</subtitle>
-      <image>assets/images/floor-12.svg</image>
-      <imageAlt>Level 12 floor image</imageAlt>
-      <icon>&#128179;</icon>
-    </item>
-    <item date="OPEN">
-      <floor>12F</floor>
-      <title>Records Room</title>
-      <subtitle>Forms, Archives, Document Requests</subtitle>
-      <image>assets/images/floor-12.svg</image>
-      <imageAlt>Level 12 floor image</imageAlt>
-      <icon>&#128450;</icon>
-    </item>
-  </level>
-
-  <level name="LEVEL 13F" date="JUNE 23, 2026">
-    <item featured="true">
-      <floor>13F</floor>
-      <title>Sky Lounge</title>
-      <subtitle>VIP Holding Area and Private Events</subtitle>
-      <image>assets/images/floor-13.svg</image>
-      <imageAlt>Level 13 floor image</imageAlt>
-      <icon>&#10024;</icon>
-    </item>
-    <item>
-      <floor>13F</floor>
-      <title>Creative Studio</title>
-      <subtitle>Content Room, Production Desk, Editing Suite</subtitle>
-      <image>assets/images/floor-13.svg</image>
-      <imageAlt>Level 13 floor image</imageAlt>
-      <icon>&#127909;</icon>
-    </item>
-  </level>
-
-  <level name="LEVEL 14F" date="JUNE 24, 2026">
-    <item>
-      <floor>14F</floor>
-      <title>Roof Deck Access</title>
-      <subtitle>Authorized Personnel Only</subtitle>
-      <image>assets/images/floor-14.svg</image>
-      <imageAlt>Level 14 floor image</imageAlt>
-      <icon>&#127970;</icon>
-    </item>
-    <item>
-      <floor>14F</floor>
-      <title>Maintenance Office</title>
-      <subtitle>Facilities, Electrical, Housekeeping Support</subtitle>
-      <image>assets/images/floor-14.svg</image>
-      <imageAlt>Level 14 floor image</imageAlt>
-      <icon>&#128736;</icon>
-    </item>
-    <item date="24/7">
-      <floor>14F</floor>
-      <title>Security Post</title>
-      <subtitle>Monitoring and Building Assistance</subtitle>
-      <image>assets/images/floor-14.svg</image>
-      <imageAlt>Level 14 floor image</imageAlt>
-      <icon>&#128737;</icon>
     </item>
   </level>
 </directory>

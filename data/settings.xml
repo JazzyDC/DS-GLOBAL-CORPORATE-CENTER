@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <page title="DS Global Corporate Center - Directory" />
+
+  <branding refreshMinutes="5" />
+
+  <weather
+    apiBase="https://api.open-meteo.com/v1/forecast"
+    city="Quezon City"
+    latitude="14.6760"
+    longitude="121.0437"
+    timezone="Asia/Manila"
+    refreshMinutes="2"
+    defaultTemperature="30"
+  />
+
+  <news
+    url="https://newsdata.io/api/1/latest?country=ph&amp;apikey=pub_8c6cfdcc37a54f168a65dd4b7d0e3ed5"
+    refreshMinutes="15"
+    maxHeadlines="5"
+  />
+
+  <ticker speedSeconds="90">
+    <message>BUILDING MAINTENANCE SCHEDULED 12AM TO 4AM</message>
+    <message>CHECK OUR WEBSITE FOR VENUE BOOKINGS</message>
+  </ticker>
+
+  <directory rowsPerPage="6" rotateSeconds="10" fadeMs="650" refreshMinutes="5" />
+
+  <videos fadeOutMs="1200" fadeInMs="3000" />
+</settings>
