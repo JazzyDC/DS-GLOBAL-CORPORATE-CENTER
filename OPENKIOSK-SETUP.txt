@@ -1,0 +1,22 @@
+OPENKIOSK DIRECT FILE SETUP
+
+Use the direct HTML file in OpenKiosk. This does not need localhost, Node.js,
+PowerShell, BAT launchers, or a local web server.
+
+OpenKiosk URL format:
+
+file:///C:/PATH/TO/DS-GLOBAL-CORPORATE-CENTER/index-modern-backup.html
+
+Example:
+
+file:///C:/Users/admin/Desktop/DS-GLOBAL-CORPORATE-CENTER/index-modern-backup.html
+
+Steps:
+
+1. Copy the whole DS-GLOBAL-CORPORATE-CENTER folder to the media player.
+2. Open OpenKiosk settings.
+3. Set the homepage/start URL to the file:/// URL above.
+4. Put only the OpenKiosk shortcut in the Windows Startup folder.
+
+Do not put the whole dashboard folder in Startup.
+Do not use localhost if the media player blocks local server scripts.
