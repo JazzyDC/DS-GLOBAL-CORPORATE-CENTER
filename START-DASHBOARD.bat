@@ -12,7 +12,7 @@ if not exist "%~dp0dashboard-server.ps1" (
   pause
   exit /b 1
 )
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0dashboard-server.ps1"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0dashboard-server.ps1"
 echo.
 echo Dashboard server stopped or failed to start.
 pause
