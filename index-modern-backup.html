@@ -673,6 +673,10 @@ const FALLBACK_XML = {
 };
 
 async function loadXMLText(fileName) {
+  if (window.location.protocol === "file:") {
+    return FALLBACK_XML[fileName] || "";
+  }
+
   try {
     const res = await fetch(`${XML_DATA_BASE}${fileName}`, { cache: "no-store" });
     if (!res.ok) throw new Error(`${fileName} request failed: ${res.status}`);

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<server port="8000" defaultPage="dashboard-kiosk.html" />
+<server port="8000" defaultPage="index.html" />

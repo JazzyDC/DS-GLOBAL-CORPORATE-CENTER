@@ -15,7 +15,7 @@
 
   <!-- TOP HEADER PATTERN: Banner shown above the logo, weather, and clock. -->
   <headerPattern
-    src="assets/images/Pattern DS Global Holdings-05.png"
+    src="assets/images/DSGLOBAL-asbtract shapes-03.png"
     height="50"
     fit="cover"
     position="center"
@@ -23,7 +23,7 @@
 
   <!-- BOTTOM FOOTER PATTERN: Decorative strip shown below the news ticker. -->
   <strip
-    src="assets/images/Pattern DS Global Holdings-04.png"
+    src="assets/images/DSGLOBAL-asbtract shapes-02.png"
     height="50"
     fit="cover"
     position="center"

@@ -2,84 +2,100 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>DS Global Corporate Center - Mediasign Legacy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Kiosk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+:root{
+  --navy: #2E318E;           
+  --navy-light: #2E318E;
+  --ink: #0F2549;
+  --muted: #6687b4;
+  --line: #E4E9F2;
+  --bg: #F4F7FC;
+  --white: #FFFFFF;
+  
+  --accent-cyan: #22D3EE;    
+  --blue: #3B82F6;
+  
+  --red: #E5484D;            
+  --red-soft: #FDEDED;
+  --footer-navy: #2E318E;
+}
+
 *{ box-sizing: border-box; margin:0; padding:0; }
 
 html, body{
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #2E318E;
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--navy);
+  font-family: 'Inter', sans-serif;
 }
 
 #stage{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .screen{
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 1080px;
   height: 1920px;
   flex-shrink: 0;
-  background-color: #F4F7FC;
+  background-color: var(--bg);
   background-image:
     linear-gradient(rgba(240, 249, 252, 0.28), rgba(240, 249, 252, 0.28)),
-    url("assets/images/Suggested Background.jpg");
+    var(--screen-bg-image, none);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transform-origin: 0 0;
+  transform-origin: center center;
 }
 
 .header-pattern{
-  --header-pattern-image: url("assets/images/Pattern DS Global Holdings-05.png");
+  --header-pattern-image: none;
   --header-pattern-size: cover;
   --header-pattern-position: center;
-  height: 42px;
+  height: 50px;
   flex-shrink: 0;
   background-color: #FFFFFF;
-  background-image: url("assets/images/Pattern DS Global Holdings-05.png");
+  background-image: var(--header-pattern-image);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-bottom: 3px solid #2E318E;
+  background-position: var(--header-pattern-position);
+  background-size: var(--header-pattern-size);
+  border-bottom: 3px solid var(--navy);
 }
 
 /* ===== HEADER ===== */
 .header{
-  background: #FFFFFF;
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 56px;
-  border-bottom: 3px solid #E4E9F2;
+  gap: 40px;
+  padding: 28px 56px;
+  border-bottom: 3px solid var(--line);
   flex-shrink: 0;
-  min-height: 122px;
+  min-height: 140px;
 }
 
 .brand{
   display: flex;
   align-items: center;
   padding-right: 48px;
-  border-right: 2px solid #E4E9F2;
+  border-right: 2px solid var(--line);
   flex-shrink: 0;
 }
 
 .brand-logo{
-  height: 72px;
+  height: 82px;
   width: auto;
   max-width: 380px;
   display: block;
@@ -90,8 +106,9 @@ html, body{
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 16px;
   width: 300px;
-  min-height: 78px;
+  min-height: 92px;
   padding: 0;
   flex-shrink: 0;
 }
@@ -99,7 +116,7 @@ html, body{
 .weather-art{
   position: relative;
   width: 124px;
-  height: 76px;
+  height: 82px;
   flex-shrink: 0;
 }
 
@@ -107,7 +124,7 @@ html, body{
   position: absolute;
   inset: 0;
   width: 124px;
-  height: 76px;
+  height: 82px;
 }
 
 .weather-copy{
@@ -117,15 +134,14 @@ html, body{
   justify-content: center;
   line-height: 1;
   min-width: 0;
-  margin-left: 16px;
 }
 
 .weather-temp{
   font-family: 'Poppins', sans-serif;
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 800;
   line-height: 1;
-  color: #2E318E;
+  color: var(--navy);
   text-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9),
     0 4px 10px rgba(46, 49, 142, 0.22);
@@ -147,35 +163,35 @@ html, body{
   line-height: 1.05;
   flex-shrink: 0;
   padding-left: 40px;
-  border-left: 2px solid #E4E9F2;
+  border-left: 2px solid var(--line);
 }
 
 .clock-time{
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: 46px;
-  color: #2E318E;
+  font-size: 52px;
+  color: var(--navy);
 }
 
 .clock-meridiem{
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: 30px;
-  color: #2E318E;
+  font-size: 34px;
+  color: var(--navy);
 }
 
 .clock-day{
   font-size: 17px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #6687b4;
+  color: var(--muted);
   margin-top: 4px;
 }
 
 /* ===== HERO - Clean Video ===== */
 .hero{
   position: relative;
-  height: 430px;
+  height: 520px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -197,13 +213,14 @@ html, body{
 .directory{
   flex: 1;
   min-height: 0;
-  padding: 30px 44px;
+  padding: 40px 44px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 26px;
   background-image:
     linear-gradient(rgba(235, 246, 252, 0.16), rgba(255, 239, 211, 0.06)),
-    url("assets/images/Suggested Background.jpg");
+    var(--directory-bg-image, none);
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
@@ -218,6 +235,7 @@ html, body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 26px;
   min-height: 100%;
   opacity: 1;
   transform: translateY(0);
@@ -228,6 +246,7 @@ html, body{
 .level-divider{
   display: flex;
   align-items: center;
+  gap: 18px;
   margin: 6px 0;
 }
 
@@ -252,8 +271,7 @@ html, body{
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  margin-left: 18px;
-  margin-right: 18px;
+  gap: 14px;
 }
 
 .level-divider small{
@@ -261,34 +279,29 @@ html, body{
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 1.2px;
-  color: #6687b4;
+  color: var(--muted);
 }
 
 .row{
-  background: #FFFFFF;
+  background: var(--white);
   border-radius: 28px;
   display: flex;
   align-items: stretch;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(16,26,43,0.04);
   border: 1px solid #F0F1F4;
-  margin-top: 18px;
-}
-
-.directory-page .row:first-child{
-  margin-top: 0;
 }
 
 .badge{
-  background: #2E318E;
-  color: #FFFFFF;
+  background: var(--navy);
+  color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 138px;
   flex-shrink: 0;
-  padding: 18px 8px;
+  padding: 22px 8px;
 }
 
 .badge-label{
@@ -306,9 +319,9 @@ html, body{
 }
 
 .badge--light{
-  background: #FFFFFF;
-  color: #0F2549;
-  border-right: 7px solid #22D3EE;
+  background: var(--white);
+  color: var(--ink);
+  border-right: 7px solid var(--accent-cyan);
 }
 
 .row-body{
@@ -316,38 +329,39 @@ html, body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 16px 28px;
+  padding: 20px 28px;
+  gap: 6px;
 }
 
 .row-heading{
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  gap: 18px;
 }
 
 .row-title{
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 30px;
-  color: #0F2549;
+  color: var(--ink);
   min-width: 0;
 }
 
 .row-title-accent{
   font-weight: 600;
-  color: #22D3EE;
+  color: var(--accent-cyan);
   font-size: 26px;
 }
 
 .row-subtitle{
   font-size: 20px;
-  color: #6687b4;
+  color: var(--muted);
   font-weight: 500;
-  margin-top: 6px;
 }
 
 .row-date{
-  color: #6687b4;
+  color: var(--muted);
   flex-shrink: 0;
   font-size: 17px;
   font-weight: 700;
@@ -384,22 +398,19 @@ html, body{
 .row-icon svg{ width: 52px; height: 52px; }
 
 .icon-asterisk{
-  color: #E5484D;
+  color: var(--red);
   font-size: 40px;
 }
 
 /* ===== IMPROVED BOTTOM INFO SECTION ===== */
 .info{
-  display: flex;
-  padding: 24px 44px 20px;
-  background: #FFFFFF;
-  border-top: 1px solid #E4E9F2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 38px 44px 30px;
+  background: var(--white);
+  border-top: 1px solid var(--line);
   flex-shrink: 0;
-}
-
-.info-col{
-  width: 33.333%;
-  padding-right: 20px;
 }
 
 .info-head{
@@ -411,9 +422,9 @@ html, body{
   text-transform: uppercase;
 }
 
-.info-head--red{ color: #E5484D; }
-.info-head--blue{ color: #3B82F6; }
-.info-head--cyan{ color: #22D3EE; }
+.info-head--red{ color: var(--red); }
+.info-head--blue{ color: var(--blue); }
+.info-head--cyan{ color: var(--accent-cyan); }
 
 .info-block{
   margin-bottom: 18px;
@@ -422,7 +433,7 @@ html, body{
 .info-label{
   font-size: 13px;
   font-weight: 600;
-  color: #6687b4;
+  color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.8px;
 }
@@ -430,25 +441,25 @@ html, body{
 .info-value{
   font-size: 19px;
   font-weight: 700;
-  color: #0F2549;
+  color: var(--ink);
   margin: 4px 0;
 }
 
 .info-sub{
   font-size: 14px;
-  color: #6687b4;
+  color: var(--muted);
   line-height: 1.4;
 }
 
 .info-link{
-  color: #22D3EE;
+  color: var(--accent-cyan);
   text-decoration: none;
   font-weight: 600;
 }
 
 /* Quick Dial Highlight */
 .quick-dial{
-  background: #FDEDED;
+  background: var(--red-soft);
   padding: 12px 18px;
   border-radius: 12px;
   margin-bottom: 16px;
@@ -460,20 +471,20 @@ html, body{
 .quick-dial span{
   font-size: 15px;
   font-weight: 700;
-  color: #E5484D;
+  color: var(--red);
 }
 
 .quick-dial strong{
   font-size: 32px;
   font-weight: 800;
-  color: #E5484D;
+  color: var(--red);
 }
 
 /* ===== TICKER ===== */
 .ticker{
   display: flex;
   align-items: stretch;
-  height: 56px;
+  height: 68px;
   flex-shrink: 0;
   background: #000;
 }
@@ -508,20 +519,20 @@ html, body{
 
 /* ===== BOTTOM STRIP ===== */
 .strip{
-  --strip-image: url("assets/images/Pattern DS Global Holdings-04.png");
+  --strip-image: none;
   --strip-art-size: cover;
   --strip-art-position: center;
-  height: 42px;
-  background-color: #2E318E;
-  background-image: url("assets/images/Pattern DS Global Holdings-04.png");
+  height: 50px;
+  background-color: var(--footer-navy);
+  background-image: var(--strip-image);
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-bottom: 5px solid #22D3EE;
+  background-size: var(--strip-art-size);
+  background-position: var(--strip-art-position);
+  border-bottom: 5px solid var(--accent-cyan);
   flex-shrink: 0;
 }
 </style>
-</head>
+</head> 
 <body>
 
 <div id="stage">
@@ -532,31 +543,16 @@ html, body{
   <!-- HEADER -->
   <header class="header">
     <div class="brand">
-      <img class="brand-logo" src="assets/images/DSGLOBAL-CORPORATE-CENTER-LOGO-02.png" alt="DS Global Corporate Center Logo">
+      <img class="brand-logo" src="" alt="">
     </div>
 
     <div class="weather" id="weather">
       <div class="weather-art">
-        <svg class="weather-icon" viewBox="0 0 150 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="weatherSun" x1="16" y1="13" x2="66" y2="64" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFE05C"/>
-              <stop offset="1" stop-color="#F4B400"/>
-            </linearGradient>
-            <linearGradient id="weatherCloud" x1="44" y1="14" x2="99" y2="74" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#DDF4FF"/>
-              <stop offset="0.55" stop-color="#9FD7F5"/>
-              <stop offset="1" stop-color="#5AAFE0"/>
-            </linearGradient>
-          </defs>
-          <circle cx="42" cy="39" r="25" fill="url(#weatherSun)"/>
-          <path d="M43 72h58c12.8 0 23.2-9 23.2-20.2 0-10.5-9.2-19.3-21.1-20.1C98.1 19.6 86 12 72.1 12c-15 0-27.6 9.1-30.7 21.5C30.7 34.9 22 43 22 52.8 22 63.4 31.4 72 43 72Z" fill="url(#weatherCloud)"/>
-          <path d="M70 79c0 5.7-4.5 9.7-9.5 9.7S51 84.7 51 79c0-5.2 6.7-13.3 9.5-16.4C63.5 65.7 70 73.7 70 79Z" fill="#0B67D6"/>
-        </svg>
+        <svg class="weather-icon" viewBox="0 0 150 96" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
       </div>
       <div class="weather-copy">
-        <span class="weather-temp"><span id="weatherCurrent">30</span>&deg;C</span>
-        <span class="weather-city">Quezon City</span>
+        <span class="weather-temp"><span id="weatherCurrent"></span>&deg;C</span>
+        <span class="weather-city"></span>
       </div>
     </div>
 
@@ -569,45 +565,25 @@ html, body{
 
   <!-- HERO - Clean Video -->
   <section class="hero">
-    <video class="hero-bg" autoplay muted loop playsinline>
-      <source src="assets/videos/Luxury, Convenience, Security Redefined _ DS Global Quezon City HQ Tour.mp4" type="video/mp4">
-    </video>
+    <video class="hero-bg" autoplay muted loop playsinline></video>
     <div class="hero-tint"></div>
   </section>
 
   <!-- DIRECTORY -->
   <main class="directory" id="directory">
-    <div class="level-divider"><span>BUILDING DIRECTORY</span></div>
-    <div class="directory-page" id="directoryPage"></div>
+    <!-- Will be populated by JavaScript from data/directory.xml -->
   </main>
 
   <!-- FOOTER INFO -->
-  <section class="info" id="info">
-    <div class="info-col">
-      <div class="info-head info-head--red">EMERGENCY HOTLINES</div>
-      <div class="quick-dial"><span>Quick Dial</span><strong>122</strong></div>
-      <div class="info-block"><span class="info-label">Fire Department</span><span class="info-value">(02) 8343-2222</span></div>
-    </div>
-    <div class="info-col">
-      <div class="info-head info-head--blue">LAW &amp; SAFETY</div>
-      <div class="info-block"><span class="info-label">Police Department</span><span class="info-value">(02) 8726-2624</span></div>
-      <div class="info-block"><span class="info-label">Bureau of Fire Protection</span><span class="info-value">(02) 8726-2237</span></div>
-    </div>
-    <div class="info-col">
-      <div class="info-head info-head--cyan">GENERAL INQUIRIES</div>
-      <div class="info-block">
-        <span class="info-value">+63 975 019 2080</span>
-        <a class="info-link" href="mailto:inquiries.dsglobal@gmail.com">inquiries.dsglobal@gmail.com</a>
-        <span class="info-sub">DS Global Corporate Center, Mindanao Ave Extension, Greater Lagro, Quezon City, Metro Manila, NCR, Philippines 1100</span>
-      </div>
-    </div>
+  <section class="info">
+    <!-- Will be populated by JavaScript from data/footer.xml -->
   </section>
 
   <!-- TICKER -->
   <section class="ticker" aria-label="News ticker">
     <div class="ticker-track">
       <div class="ticker-content" id="tickerContent">
-        <span>BUILDING MAINTENANCE SCHEDULED 12AM TO 4AM&nbsp;&nbsp;•&nbsp;&nbsp;CHECK OUR WEBSITE FOR VENUE BOOKINGS&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+        <span></span>
       </div>
     </div>
   </section>
@@ -618,110 +594,645 @@ html, body{
 </div>
 
 <script>
-(function () {
-  var CANVAS_W = 1080;
-  var CANVAS_H = 1920;
-  var dayNames = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
-  var rows = [
-    ["B", "Basement Parking", "Tenant and Visitor Parking", "", ""],
-    ["B", "Utility Rooms", "Electrical, Pump, and Building Services", "", ""],
-    ["GF", "Main Lobby", "Reception, Visitor Assistance, and Waiting Area", "", ""],
-    ["GF", "Security Desk", "Access Control and Building Assistance", "", ""],
-    ["2F", "Tenant Offices", "Office Suites and Shared Work Areas", "", ""],
-    ["3F", "Tenant Offices", "Office Suites and Shared Work Areas", "", ""],
-    ["4F", "Tenant Offices", "Office Suites and Shared Work Areas", "", ""],
-    ["5F", "Tenant Offices", "Office Suites and Shared Work Areas", "", ""],
-    ["6F", "Tenant Offices", "Office Suites and Shared Work Areas", "", ""],
-    ["7F", "Tenant Offices", "Office Suites and Shared Work Areas", "", ""],
-    ["8F", "Elevator Lobby", "", "assets/images/floor-8.svg", "Level 8 floor image"],
-    ["8F", "Common Hallway", "", "assets/images/floor-8.svg", "Level 8 floor image"],
-    ["9F", "The Top", "(Second Level)", "assets/images/floor-9.svg", "Level 9 floor image"],
-    ["9F", "Events & Conference Center", "A/V Suite, Projectors, Mobile Stage, Executive Partitions", "assets/images/floor-9.svg", "Level 9 floor image"],
-    ["10F", "Executive Offices", "Reception, Meeting Rooms, Private Offices", "assets/images/floor-10.svg", "Level 10 floor image"],
-    ["10F", "Client Lounge", "Waiting Area, Pantry, Consultation Room", "assets/images/floor-10.svg", "Level 10 floor image"],
-    ["10F", "Admin Services", "Document Processing and Building Support", "assets/images/floor-10.svg", "Level 10 floor image"]
-  ];
-  var page = 0;
-  var rowsPerPage = 5;
+// ===== FULLSCREEN SCALE-TO-FIT =====
+const CANVAS_W = 1080;
+const CANVAS_H = 1920;
+const XML_DATA_BASE = "data/";
+let appSettings = null;
 
-  function escapeHTML(value) {
-    return String(value || "").replace(/[&<>"']/g, function (char) {
-      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char];
-    });
-  }
+const FALLBACK_XML = {
+  "settings.xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<settings>\r\n  <page title=\"DS Global Corporate Center - Directory\" />\r\n\r\n  <branding refreshMinutes=\"5\" />\r\n\r\n  <weather\r\n    apiBase=\"https://api.open-meteo.com/v1/forecast\"\r\n    city=\"Quezon City\"\r\n    latitude=\"14.6760\"\r\n    longitude=\"121.0437\"\r\n    timezone=\"Asia/Manila\"\r\n    refreshMinutes=\"2\"\r\n    defaultTemperature=\"30\"\r\n  />\r\n\r\n  <news\r\n    url=\"https://newsdata.io/api/1/latest?country=ph&amp;apikey=pub_8c6cfdcc37a54f168a65dd4b7d0e3ed5\"\r\n    refreshMinutes=\"15\"\r\n    maxHeadlines=\"5\"\r\n  />\r\n\r\n  <ticker speedSeconds=\"90\">\r\n    <message>BUILDING MAINTENANCE SCHEDULED 12AM TO 4AM</message>\r\n    <message>CHECK OUR WEBSITE FOR VENUE BOOKINGS</message>\r\n  </ticker>\r\n\r\n  <directory rowsPerPage=\"6\" rotateSeconds=\"10\" fadeMs=\"650\" refreshMinutes=\"5\" />\r\n\r\n  <videos fadeOutMs=\"1200\" fadeInMs=\"3000\" />\r\n</settings>\r\n",
+  "branding.xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<branding>\n  <!-- CLIENT LOGO: Place the replacement logo in assets/images and update this path. -->\n  <logo\n    src=\"assets/images/DSGLOBAL-CORPORATE-CENTER-LOGO-02.png\"\n    alt=\"DS Global Corporate Center Logo\"\n  />\n\n  <!-- PAGE BACKGROUND: Main screen and directory background artwork. -->\n  <background\n    src=\"assets/images/Suggested Background.jpg\"\n    fit=\"cover\"\n    position=\"center\"\n  />\n\n  <!-- TOP HEADER PATTERN: Banner shown above the logo, weather, and clock. -->\n  <headerPattern\n    src=\"assets/images/DSGLOBAL-asbtract shapes-03.png\"\n    height=\"50\"\n    fit=\"cover\"\n    position=\"center\"\n  />\n\n  <!-- BOTTOM FOOTER PATTERN: Decorative strip shown below the news ticker. -->\n  <strip\n    src=\"assets/images/DSGLOBAL-asbtract shapes-02.png\"\n    height=\"50\"\n    fit=\"cover\"\n    position=\"center\"\n  />\n</branding>\n",
+  "videos.xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<videos><video src=\"assets/videos/Luxury, Convenience, Security Redefined _ DS Global Quezon City HQ Tour.mp4\" poster=\"assets/images/Suggested Background.jpg\" />\n  <video src=\"assets/videos/A Legacy of Sustainable Innovation _ DS Global Holdings Inc..mp4\" poster=\"assets/images/Suggested Background.jpg\" />\n  <!-- Add more videos here -->\r\n</videos>\n",
+  "footer.xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<footer>\n  <column title=\"EMERGENCY HOTLINES\" theme=\"red\">\n    <quickDial label=\"Quick Dial\" value=\"122\" />\n    <item>\n      <label>Fire Department</label>\n      <value>(02) 8343-2222</value>\n    </item>\n  </column>\n\n  <column title=\"LAW &amp; SAFETY\" theme=\"blue\">\n    <item>\n      <label>Police Department</label>\n      <value>(02) 8726-2624</value>\n    </item>\n    <item>\n      <label>Bureau of Fire Protection</label>\n      <value>(02) 8726-2237</value>\n    </item>\n  </column>\n\n  <column title=\"GENERAL INQUIRIES\" theme=\"cyan\">\n    <item>\n      <value>+63 975 019 2080</value>\n      <email>inquiries.dsglobal@gmail.com</email>\n      <note>DS Global Corporate Center, Mindanao Ave Extension, Greater Lagro, Quezon City, Metro Manila, NCR, Philippines 1100</note>\n    </item>\n  </column>\n</footer>\n",
+  "directory.xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<directory>\n  <!--\n    To use an image for any item, place the file in assets/images and add:\n    <image>assets/images/your-image.png</image>\n    <imageAlt>Description of the image</imageAlt>\n\n    The image is used when present; otherwise <icon> is shown.\n  -->\n  <level name=\"BASEMENT\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>B</floor>\n      <title>Basement Parking</title>\n      <subtitle>Tenant and Visitor Parking</subtitle>\n      <icon>&#128663;</icon>\n    </item>\n    <item>\n      <floor>B</floor>\n      <title>Utility Rooms</title>\n      <subtitle>Electrical, Pump, and Building Services</subtitle>\n      <icon>&#9881;</icon>\n    </item>\n  </level>\n\n  <level name=\"GROUND FLOOR\" date=\"JULY 01, 2026\">\n    <item featured=\"true\">\n      <floor>GF</floor>\n      <title>Main Lobby</title>\n      <subtitle>Reception, Visitor Assistance, and Waiting Area</subtitle>\n      <icon>&#127970;</icon>\n    </item>\n    <item>\n      <floor>GF</floor>\n      <title>Security Desk</title>\n      <subtitle>Access Control and Building Assistance</subtitle>\n      <icon>&#128737;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 2F\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>2F</floor>\n      <title>Tenant Offices</title>\n      <subtitle>Office Suites and Shared Work Areas</subtitle>\n      <icon>&#128188;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 3F\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>3F</floor>\n      <title>Tenant Offices</title>\n      <subtitle>Office Suites and Shared Work Areas</subtitle>\n      <icon>&#128188;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 4F\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>4F</floor>\n      <title>Tenant Offices</title>\n      <subtitle>Office Suites and Shared Work Areas</subtitle>\n      <icon>&#128188;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 5F\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>5F</floor>\n      <title>Tenant Offices</title>\n      <subtitle>Office Suites and Shared Work Areas</subtitle>\n      <icon>&#128188;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 6F\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>6F</floor>\n      <title>Tenant Offices</title>\n      <subtitle>Office Suites and Shared Work Areas</subtitle>\n      <icon>&#128188;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 7F\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>7F</floor>\n      <title>Tenant Offices</title>\n      <subtitle>Office Suites and Shared Work Areas</subtitle>\n      <icon>&#128188;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 8F\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>8F</floor>\n      <title>Elevator Lobby</title>\n      <image>assets/images/floor-8.svg</image>\n      <imageAlt>Level 8 floor image</imageAlt>\n      <icon>&#8595;</icon>\n    </item>\n    <item>\n      <floor>8F</floor>\n      <title>Common Hallway</title>\n      <image>assets/images/floor-8.svg</image>\n      <imageAlt>Level 8 floor image</imageAlt>\n      <icon>&#128100;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 9F\" date=\"JULY 01, 2026\">\n    <item featured=\"true\">\n      <floor>9F</floor>\n      <title>The Top</title>\n      <subtitle>(Second Level)</subtitle>\n      <image>assets/images/floor-9.svg</image>\n      <imageAlt>Level 9 floor image</imageAlt>\n      <icon>&#11088;</icon>\n    </item>\n    <item>\n      <floor>9F</floor>\n      <title>Events &amp; Conference Center</title>\n      <subtitle>A/V Suite, Projectors, Mobile Stage, Executive Partitions</subtitle>\n      <image>assets/images/floor-9.svg</image>\n      <imageAlt>Level 9 floor image</imageAlt>\n      <icon>&#128101;</icon>\n    </item>\n  </level>\n\n  <level name=\"LEVEL 10F\" date=\"JULY 01, 2026\">\n    <item>\n      <floor>10F</floor>\n      <title>Executive Offices</title>\n      <subtitle>Reception, Meeting Rooms, Private Offices</subtitle>\n      <image>assets/images/floor-10.svg</image>\n      <imageAlt>Level 10 floor image</imageAlt>\n      <icon>&#128188;</icon>\n    </item>\n    <item date=\"9:00 AM - 6:00 PM\">\n      <floor>10F</floor>\n      <title>Client Lounge</title>\n      <subtitle>Waiting Area, Pantry, Consultation Room</subtitle>\n      <image>assets/images/floor-10.svg</image>\n      <imageAlt>Level 10 floor image</imageAlt>\n      <icon>&#9749;</icon>\n    </item>\n    <item>\n      <floor>10F</floor>\n      <title>Admin Services</title>\n      <subtitle>Document Processing and Building Support</subtitle>\n      <image>assets/images/floor-10.svg</image>\n      <imageAlt>Level 10 floor image</imageAlt>\n      <icon>&#128196;</icon>\n    </item>\n  </level>\n</directory>\n"
+};
 
-  function scaleToFit() {
-    var screen = document.querySelector(".screen");
-    if (!screen) return;
-    var viewportW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || CANVAS_W;
-    var viewportH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || CANVAS_H;
-    var scaleX = viewportW / CANVAS_W;
-    var scaleY = viewportH / CANVAS_H;
-    var scale = Math.min(scaleX, scaleY);
-    var left = Math.max(0, (viewportW - (CANVAS_W * scale)) / 2);
-    var top = Math.max(0, (viewportH - (CANVAS_H * scale)) / 2);
-    screen.style.width = CANVAS_W + "px";
-    screen.style.height = CANVAS_H + "px";
-    screen.style.left = left + "px";
-    screen.style.top = top + "px";
-    screen.style.transformOrigin = "0 0";
-    screen.style.webkitTransformOrigin = "0 0";
-    screen.style.transform = "scale(" + scale + ")";
-    screen.style.webkitTransform = "scale(" + scale + ")";
-  }
-
-  function updateClock() {
-    var now = new Date();
-    var hours = now.getHours();
-    var minutes = now.getMinutes();
-    var meridiem = hours >= 12 ? "PM" : "AM";
-    hours = hours % 12 || 12;
-    document.getElementById("clockTime").innerHTML = twoDigits(hours) + ":" + twoDigits(minutes);
-    document.getElementById("clockMeridiem").innerHTML = meridiem;
-    document.getElementById("clockDay").innerHTML = dayNames[now.getDay()];
-  }
-
-  function twoDigits(value) {
-    return value < 10 ? "0" + value : String(value);
-  }
-
-  function renderDirectory() {
-    var target = document.getElementById("directoryPage");
-    if (!target) return;
-    var start = page * rowsPerPage;
-    var currentRows = rows.slice(start, start + rowsPerPage);
-    var html = "";
-    for (var i = 0; i < currentRows.length; i++) {
-      var row = currentRows[i];
-      html += '<div class="row">';
-      html += '<div class="badge"><div class="badge-label">FLOOR</div><div class="badge-num">' + escapeHTML(row[0]) + '</div></div>';
-      html += '<div class="row-body"><div class="row-heading"><div class="row-title">' + escapeHTML(row[1]) + '</div></div>';
-      if (row[2]) html += '<div class="row-subtitle">' + escapeHTML(row[2]) + '</div>';
-      html += '</div><div class="row-icon"><img src="' + escapeHTML(row[3]) + '" alt="' + escapeHTML(row[4]) + '"></div></div>';
+async function loadXMLText(fileName) {
+  try {
+    const res = await fetch(`${XML_DATA_BASE}${fileName}`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`${fileName} request failed: ${res.status}`);
+    return await res.text();
+  } catch (err) {
+    try {
+      return await loadXMLTextWithXHR(`${XML_DATA_BASE}${fileName}`);
+    } catch (xhrErr) {
+      console.warn(`${fileName} external XML unavailable, using embedded fallback.`, xhrErr);
     }
-    target.innerHTML = html;
+
+    if (FALLBACK_XML[fileName]) return FALLBACK_XML[fileName];
+    throw err;
+  }
+}
+
+function loadXMLTextWithXHR(path) {
+  return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    request.open("GET", path, true);
+    request.overrideMimeType("application/xml");
+    request.onload = () => {
+      if (request.status === 0 || (request.status >= 200 && request.status < 300)) {
+        resolve(request.responseText);
+      } else {
+        reject(new Error(`${path} request failed: ${request.status}`));
+      }
+    };
+    request.onerror = () => reject(new Error(`${path} request failed`));
+    request.send();
+  });
+}
+
+function xmlAttribute(element, name) {
+  return element ? String(element.getAttribute(name) || "").trim() : "";
+} 
+
+function xmlNumberAttribute(element, name) {
+  const value = Number.parseFloat(xmlAttribute(element, name));
+  if (!Number.isFinite(value)) {
+    throw new Error(`settings.xml must include numeric ${name} attribute.`);
+  }
+  return value;
+}
+
+async function loadSettings() {
+  const text = await loadXMLText("settings.xml");
+  const xml = new DOMParser().parseFromString(text, "text/xml");
+  if (xml.querySelector("parsererror")) throw new Error("Invalid settings XML");
+
+  const page = xml.querySelector("page");
+  const branding = xml.querySelector("branding");
+  const weather = xml.querySelector("weather");
+  const news = xml.querySelector("news");
+  const ticker = xml.querySelector("ticker");
+  const directory = xml.querySelector("directory");
+  const videos = xml.querySelector("videos");
+
+  appSettings = {
+    title: xmlAttribute(page, "title"),
+    branding: {
+      refreshMs: xmlNumberAttribute(branding, "refreshMinutes") * 60 * 1000
+    },
+    weather: {
+      city: xmlAttribute(weather, "city"),
+      apiBase: xmlAttribute(weather, "apiBase"),
+      latitude: xmlNumberAttribute(weather, "latitude"),
+      longitude: xmlNumberAttribute(weather, "longitude"),
+      timezone: xmlAttribute(weather, "timezone"),
+      refreshMs: xmlNumberAttribute(weather, "refreshMinutes") * 60 * 1000,
+      defaultTemperature: xmlAttribute(weather, "defaultTemperature")
+    },
+    news: {
+      url: xmlAttribute(news, "url"),
+      refreshMs: xmlNumberAttribute(news, "refreshMinutes") * 60 * 1000,
+      maxHeadlines: xmlNumberAttribute(news, "maxHeadlines")
+    },
+    ticker: {
+      speedSeconds: xmlNumberAttribute(ticker, "speedSeconds"),
+      messages: Array.from(xml.querySelectorAll("ticker > message"))
+        .map(message => message.textContent.trim())
+        .filter(Boolean)
+    },
+    directory: {
+      rowsPerPage: xmlNumberAttribute(directory, "rowsPerPage"),
+      rotateMs: xmlNumberAttribute(directory, "rotateSeconds") * 1000,
+      fadeMs: xmlNumberAttribute(directory, "fadeMs"),
+      refreshMs: xmlNumberAttribute(directory, "refreshMinutes") * 60 * 1000
+    },
+    videos: {
+      fadeOutMs: xmlNumberAttribute(videos, "fadeOutMs"),
+      fadeInMs: xmlNumberAttribute(videos, "fadeInMs")
+    }
+  };
+
+  if (appSettings.title) document.title = appSettings.title;
+
+  const city = document.querySelector(".weather-city");
+  if (city) city.textContent = appSettings.weather.city;
+
+  const current = document.getElementById("weatherCurrent");
+  if (current) current.textContent = appSettings.weather.defaultTemperature;
+
+  const iconEl = document.querySelector(".weather-icon");
+  if (iconEl) iconEl.innerHTML = weatherIconSVG(2);
+
+  if (tickerContent) {
+    tickerContent.style.animationDuration = `${appSettings.ticker.speedSeconds}s`;
+  }
+}
+
+function scaleToFit() {
+  const screen = document.querySelector(".screen");
+  if (!screen) return;
+  const scaleX = window.innerWidth / CANVAS_W;
+  const scaleY = window.innerHeight / CANVAS_H;
+  const isPortrait = window.innerHeight >= window.innerWidth;
+
+  screen.style.transform = isPortrait
+    ? `scale(${scaleX}, ${scaleY})`
+    : `scale(${Math.min(scaleX, scaleY)})`;
+}
+
+scaleToFit();
+window.addEventListener("resize", scaleToFit);
+
+// ===== XML BRANDING =====
+function brandingAttribute(element, name) {
+  return element ? String(element.getAttribute(name) || "").trim() : "";
+}
+
+async function loadBranding() {
+  try {
+    const text = await loadXMLText("branding.xml");
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+    if (xml.querySelector("parsererror")) throw new Error("Invalid branding XML");
+
+    const logoSettings = xml.querySelector("logo");
+    const backgroundSettings = xml.querySelector("background");
+    const headerPatternSettings = xml.querySelector("headerPattern");
+    const stripSettings = xml.querySelector("strip");
+    const logo = document.querySelector(".brand-logo");
+    const screen = document.querySelector(".screen");
+    const directory = document.querySelector(".directory");
+    const headerPattern = document.querySelector(".header-pattern");
+    const strip = document.querySelector(".strip");
+
+    const logoSrc = safeLocalAssetPath(brandingAttribute(logoSettings, "src"));
+    if (logo && logoSrc) logo.src = logoSrc;
+
+    const logoAlt = brandingAttribute(logoSettings, "alt");
+    if (logo && logoAlt) logo.alt = logoAlt;
+
+    const fitSizes = {
+      cover: "cover",
+      contain: "contain",
+      stretch: "100% 100%",
+      natural: "auto"
+    };
+
+    const backgroundSrc = safeLocalAssetPath(brandingAttribute(backgroundSettings, "src"));
+    if (backgroundSrc) {
+      const backgroundImage = `url("${backgroundSrc.replace(/"/g, '\\"')}")`;
+      if (screen) screen.style.setProperty("--screen-bg-image", backgroundImage);
+      if (directory) directory.style.setProperty("--directory-bg-image", backgroundImage);
+    }
+
+    const backgroundFit = brandingAttribute(backgroundSettings, "fit").toLowerCase();
+    if (fitSizes[backgroundFit]) {
+      if (screen) screen.style.backgroundSize = fitSizes[backgroundFit];
+      if (directory) directory.style.backgroundSize = fitSizes[backgroundFit];
+    }
+
+    const backgroundPosition = brandingAttribute(backgroundSettings, "position");
+    if (backgroundPosition) {
+      if (screen) screen.style.backgroundPosition = backgroundPosition;
+      if (directory) directory.style.backgroundPosition = backgroundPosition;
+    }
+
+    const headerPatternSrc = safeLocalAssetPath(brandingAttribute(headerPatternSettings, "src"));
+    if (headerPattern && headerPatternSrc) {
+      headerPattern.style.setProperty(
+        "--header-pattern-image",
+        `url("${headerPatternSrc.replace(/"/g, '\\"')}")`
+      );
+    }
+
+    if (headerPattern) {
+      const requestedHeight = Number.parseInt(brandingAttribute(headerPatternSettings, "height"), 10);
+      if (Number.isFinite(requestedHeight)) {
+        headerPattern.style.height = `${Math.min(240, Math.max(20, requestedHeight))}px`;
+      }
+
+      const fit = brandingAttribute(headerPatternSettings, "fit").toLowerCase();
+      if (fitSizes[fit]) {
+        headerPattern.style.setProperty("--header-pattern-size", fitSizes[fit]);
+      }
+
+      const position = brandingAttribute(headerPatternSettings, "position");
+      if (position) {
+        headerPattern.style.setProperty("--header-pattern-position", position);
+      }
+    }
+
+    const stripSrc = safeLocalAssetPath(brandingAttribute(stripSettings, "src"));
+    if (strip && stripSrc) {
+      strip.style.setProperty("--strip-image", `url("${stripSrc.replace(/"/g, '\\"')}")`);
+    }
+
+    if (strip) {
+      const requestedHeight = Number.parseInt(brandingAttribute(stripSettings, "height"), 10);
+      if (Number.isFinite(requestedHeight)) {
+        strip.style.height = `${Math.min(300, Math.max(36, requestedHeight))}px`;
+      }
+
+      const fit = brandingAttribute(stripSettings, "fit").toLowerCase();
+      if (fitSizes[fit]) strip.style.setProperty("--strip-art-size", fitSizes[fit]);
+
+      const position = brandingAttribute(stripSettings, "position");
+      if (position) strip.style.setProperty("--strip-art-position", position);
+    }
+  } catch (err) {
+    console.error(`Branding load error from ${XML_DATA_BASE}branding.xml:`, err);
+  }
+}
+
+// ===== LIVE CLOCK =====
+const dayNames = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+
+function updateClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  const minutes = now.getMinutes();
+  const meridiem = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12;
+
+  document.getElementById("clockTime").textContent = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+  document.getElementById("clockMeridiem").textContent = meridiem;
+  document.getElementById("clockDay").textContent = dayNames[now.getDay()];
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+// ===== TICKER =====
+const tickerContent = document.getElementById("tickerContent");
+
+function renderTickerMessages(messages) {
+  if (!tickerContent) return;
+
+  const cleanMessages = messages
+    .map(message => String(message || "").trim())
+    .filter(Boolean);
+
+  const configuredMessages = appSettings?.ticker?.messages || [];
+  const tickerText = (cleanMessages.length ? cleanMessages : configuredMessages)
+    .map(escapeHTML)
+    .join("&nbsp;&nbsp;&bull;&nbsp;&nbsp;");
+
+  tickerContent.innerHTML = `<span>${tickerText}&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>`;
+  tickerContent.innerHTML += tickerContent.innerHTML;
+}
+
+async function fetchNewsTicker() {
+  try {
+    const newsUrl = appSettings?.news?.url;
+    if (!newsUrl) {
+      renderTickerMessages(appSettings?.ticker?.messages || []);
+      return;
+    }
+
+    const res = await fetch(newsUrl);
+    if (!res.ok) throw new Error(`NewsData error: ${res.status}`);
+
+    const data = await res.json();
+    const maxHeadlines = appSettings.news.maxHeadlines;
+    const headlines = Array.isArray(data.results)
+      ? data.results.slice(0, maxHeadlines).map(item => item.title)
+      : [];
+
+    renderTickerMessages(headlines);
+  } catch (err) {
+    renderTickerMessages(appSettings?.ticker?.messages || []);
+  }
+}
+
+// ===== WEATHER =====
+function weatherIconSVG(code) {
+  const sun = `
+    <circle cx="42" cy="39" r="25" fill="url(#weatherSun)"/>
+    <g stroke="#D6A03A" stroke-width="2.8" stroke-linecap="round" opacity="0.42">
+      <line x1="18" y1="21" x2="12" y2="16"/>
+      <line x1="65" y1="17" x2="71" y2="11"/>
+      <line x1="43" y1="5" x2="43" y2="12"/>
+      <line x1="14" y1="43" x2="7" y2="44"/>
+    </g>`;
+  const cloud = `
+    <g filter="url(#weatherShadow)">
+      <path d="M43 72h58c12.8 0 23.2-9 23.2-20.2 0-10.5-9.2-19.3-21.1-20.1C98.1 19.6 86 12 72.1 12c-15 0-27.6 9.1-30.7 21.5C30.7 34.9 22 43 22 52.8 22 63.4 31.4 72 43 72Z" fill="url(#weatherCloud)"/>
+      <path d="M42.6 72h58.9c12.2 0 22.2-8.4 22.2-19.4 0-2.2-.4-4.2-1.1-6.1-3.2 6.3-10.4 10.8-18.8 10.8H44.8c-7.9 0-14.9-3.6-18.9-9.1-2.2 3-3.4 6.4-3.4 10C22.5 66 31.4 72 42.6 72Z" fill="#7FC8EE" opacity="0.58"/>
+    </g>`;
+  const rain = `
+    <path d="M70 79c0 5.7-4.5 9.7-9.5 9.7S51 84.7 51 79c0-5.2 6.7-13.3 9.5-16.4C63.5 65.7 70 73.7 70 79Z" fill="#0B67D6"/>`;
+  const lightning = `
+    <path d="M128 48l-10 19h10l-12 20 26-28h-12l9-11h-11Z" fill="#F4C20D"/>
+    <path d="M15 57L8 70h7L7 84l17-20h-8l6-7h-7Z" fill="#F4C20D"/>`;
+  const defs = `
+    <defs>
+      <linearGradient id="weatherSun" x1="16" y1="13" x2="66" y2="64" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FFE05C"/>
+        <stop offset="1" stop-color="#F4B400"/>
+      </linearGradient>
+      <linearGradient id="weatherCloud" x1="44" y1="14" x2="99" y2="74" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#DDF4FF"/>
+        <stop offset="0.55" stop-color="#9FD7F5"/>
+        <stop offset="1" stop-color="#5AAFE0"/>
+      </linearGradient>
+      <filter id="weatherShadow" x="14" y="4" width="119" height="77" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#64748B" flood-opacity="0.22"/>
+      </filter>
+    </defs>`;
+
+  if (code === 0) return `${defs}${sun}`;
+  if ([1, 2].includes(code)) return `${defs}${sun}${cloud}`;
+  if ([3, 45, 48].includes(code)) return `${defs}${cloud}`;
+  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return `${defs}${sun}${cloud}${rain}`;
+  if ([95, 96, 99].includes(code)) return `${defs}${sun}${cloud}${lightning}`;
+  return `${defs}${sun}${cloud}`;
+}
+
+async function fetchWeather() {
+  try {
+    const weather = appSettings?.weather;
+    if (!weather || !weather.apiBase || !weather.timezone) return;
+
+    const weatherUrl = `${weather.apiBase}?latitude=${encodeURIComponent(weather.latitude)}&longitude=${encodeURIComponent(weather.longitude)}&current=temperature_2m,weather_code&timezone=${encodeURIComponent(weather.timezone)}&_=${Date.now()}`;
+    const res = await fetch(weatherUrl, { cache: "no-store" });
+    const data = await res.json();
+    const weatherCode = data.current.weather_code;
+
+    document.getElementById("weatherCurrent").textContent =
+      Math.round(data.current.temperature_2m);
+
+    const iconEl = document.querySelector(".weather-icon");
+    if (iconEl) iconEl.innerHTML = weatherIconSVG(weatherCode);
+  } catch (err) {
+    console.error("Weather load error:", err);
+  }
+}
+
+// ===== FOOTER LOADER =====
+function footerText(parent, tagName) {
+  const child = Array.from(parent.children).find(el => el.localName === tagName);
+  return child ? child.textContent.trim() : "";
+}
+
+function renderFooterColumn(column) {
+  const title = escapeHTML(column.getAttribute("title") || footerText(column, "title"));
+  const theme = escapeHTML(column.getAttribute("theme") || "");
+  const headClass = theme ? ` info-head--${theme}` : "";
+  const quickDial = Array.from(column.children).find(el => el.localName === "quickDial");
+  const items = Array.from(column.children).filter(el => el.localName === "item");
+
+  return `
+    <div class="info-col">
+      <div class="info-head${headClass}">${title}</div>
+      ${quickDial ? `
+        <div class="quick-dial">
+          <span>${escapeHTML(quickDial.getAttribute("label") || footerText(quickDial, "label"))}</span>
+          <strong>${escapeHTML(quickDial.getAttribute("value") || footerText(quickDial, "value"))}</strong>
+        </div>
+      ` : ""}
+      ${items.map(item => {
+        const label = footerText(item, "label");
+        const value = footerText(item, "value");
+        const email = footerText(item, "email");
+        const note = footerText(item, "note");
+
+        return `
+          <div class="info-block">
+            ${label ? `<span class="info-label">${escapeHTML(label)}</span>` : ""}
+            ${value ? `<span class="info-value">${escapeHTML(value)}</span>` : ""}
+            ${email ? `<a class="info-link" href="mailto:${escapeHTML(email)}">${escapeHTML(email)}</a>` : ""}
+            ${note ? `<span class="info-sub">${escapeHTML(note)}</span>` : ""}
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+async function loadFooter() {
+  const info = document.querySelector(".info");
+  if (!info) return;
+
+  try {
+    const text = await loadXMLText("footer.xml");
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+    const columns = Array.from(xml.querySelectorAll("column"));
+
+    if (columns.length === 0) return;
+    info.innerHTML = columns.map(renderFooterColumn).join("");
+  } catch (err) {
+    console.error(`Footer load error from ${XML_DATA_BASE}footer.xml:`, err);
+  }
+}
+
+// ===== SMOOTH FADE VIDEO CYCLER =====
+const heroVideo = document.querySelector('.hero-bg');
+let currentVideoIndex = 0;
+let isTransitioning = false;
+
+async function loadVideos() {
+  try {
+    const text = await loadXMLText("videos.xml");
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+
+    const videoList = Array.from(xml.getElementsByTagName('video')).map(v => ({
+      src: v.getAttribute('src'),
+      poster: v.getAttribute('poster') || ''
+    }));
+
+    if (videoList.length === 0) return;
+
+    function playNextVideo() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const nextVideo = videoList[currentVideoIndex];
+      const fadeOutMs = appSettings.videos.fadeOutMs;
+      const fadeInMs = appSettings.videos.fadeInMs;
+
+      heroVideo.style.transition = `opacity ${fadeOutMs}ms ease`;
+      heroVideo.style.opacity = '0';
+
+      setTimeout(() => {
+        heroVideo.poster = nextVideo.poster;
+        heroVideo.src = nextVideo.src;
+        heroVideo.load();
+
+        heroVideo.play().catch(() => {});
+
+        heroVideo.style.transition = `opacity ${fadeInMs}ms ease`;
+        heroVideo.style.opacity = '1';
+
+        currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+        isTransitioning = false;
+      }, fadeOutMs);
+    }
+
+    const first = videoList[0];
+    heroVideo.poster = first.poster;
+    heroVideo.src = first.src;
+    heroVideo.load();
+    heroVideo.play().catch(() => {});
+    currentVideoIndex = 1;
+
+    heroVideo.removeAttribute('loop');
+    heroVideo.addEventListener('ended', playNextVideo);
+
+  } catch (err) {
+    console.error(`Failed to load ${XML_DATA_BASE}videos.xml:`, err);
+  }
+}
+
+// ===== DIRECTORY LOADER =====
+let directoryLevels = [];
+let directoryPages = [];
+let currentDirectoryPageIndex = 0;
+let isDirectoryTransitioning = false;
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
+}
+
+function childText(parent, tagName) {
+  const child = Array.from(parent.children).find(el => el.localName === tagName);
+  return child ? child.textContent.trim() : '';
+}
+
+function safeLocalAssetPath(value) {
+  const path = String(value || '').trim().replace(/\\/g, '/');
+  if (!path || path.startsWith('/') || path.includes('..') || /^[a-z]+:/i.test(path)) return '';
+  return path;
+}
+
+function parseDirectoryLevel(level) {
+  return {
+    name: level.getAttribute('name') || childText(level, 'name'),
+    date: level.getAttribute('date') || childText(level, 'date'),
+    items: Array.from(level.querySelectorAll('item')).map(item => ({
+      floor: childText(item, 'floor'),
+      title: childText(item, 'title'),
+      subtitle: childText(item, 'subtitle'),
+      icon: childText(item, 'icon'),
+      image: safeLocalAssetPath(childText(item, 'image')),
+      imageAlt: childText(item, 'imageAlt'),
+      date: item.getAttribute('date') || childText(item, 'date'),
+      featured: item.getAttribute('featured') === 'true'
+    }))
+  };
+}
+
+function buildDirectoryPages(levels) {
+  const rows = levels.flatMap(level => level.items.map(item => ({
+    ...item,
+    levelName: level.name,
+    levelDate: level.date
+  })));
+
+  const pages = [];
+  const rowsPerPage = appSettings.directory.rowsPerPage;
+  for (let i = 0; i < rows.length; i += rowsPerPage) {
+    pages.push(rows.slice(i, i + rowsPerPage));
   }
 
-  function nextDirectoryPage() {
-    page = (page + 1) % Math.ceil(rows.length / rowsPerPage);
-    renderDirectory();
-  }
+  return pages;
+}
 
-  function duplicateTicker() {
-    var ticker = document.getElementById("tickerContent");
-    if (ticker) ticker.innerHTML = ticker.innerHTML + ticker.innerHTML;
-  }
+function renderDirectoryPage() {
+  const dir = document.getElementById('directory');
+  if (!dir || directoryPages.length === 0) return;
 
-  scaleToFit();
-  updateClock();
-  renderDirectory();
-  duplicateTicker();
-  window.addEventListener("resize", scaleToFit);
-  setTimeout(scaleToFit, 250);
-  setTimeout(scaleToFit, 1000);
-  setInterval(updateClock, 1000);
-  setInterval(nextDirectoryPage, 10000);
-})();
+  const pageRows = directoryPages[currentDirectoryPageIndex % directoryPages.length];
+  dir.innerHTML = `
+    <div class="level-divider">
+      <span>BUILDING DIRECTORY</span>
+    </div>
+    <div class="directory-page">
+      ${pageRows.map(item => `
+        <div class="row ${item.featured ? 'row--featured' : ''}">
+          <div class="badge">
+            <div class="badge-label">FLOOR</div>
+            <div class="badge-num">${escapeHTML(item.floor)}</div>
+          </div>
+          <div class="row-body">
+            <div class="row-heading">
+              <div class="row-title">${escapeHTML(item.title)}</div>
+            </div>
+            ${item.subtitle ? `<div class="row-subtitle">${escapeHTML(item.subtitle)}</div>` : ''}
+          </div>
+          <div class="row-icon">
+            ${item.image
+              ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.imageAlt || item.title)}">`
+              : escapeHTML(item.icon)}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function showNextDirectoryLevel() {
+  const dir = document.getElementById('directory');
+  if (!dir || directoryPages.length <= 1 || isDirectoryTransitioning) return;
+
+  isDirectoryTransitioning = true;
+  dir.classList.add('is-fading-out');
+
+  setTimeout(() => {
+    currentDirectoryPageIndex = (currentDirectoryPageIndex + 1) % directoryPages.length;
+    renderDirectoryPage();
+
+    requestAnimationFrame(() => {
+      dir.classList.remove('is-fading-out');
+      isDirectoryTransitioning = false;
+    });
+  }, appSettings.directory.fadeMs);
+}
+
+function applyDirectoryLevels(levels) {
+  directoryLevels = levels;
+  directoryPages = buildDirectoryPages(directoryLevels);
+  currentDirectoryPageIndex = directoryPages.length
+    ? currentDirectoryPageIndex % directoryPages.length
+    : 0;
+  renderDirectoryPage();
+}
+
+async function loadDirectory() {
+  try {
+    const text = await loadXMLText("directory.xml");
+    const xml = new DOMParser().parseFromString(text, "text/xml");
+    const levels = Array.from(xml.querySelectorAll('level')).map(parseDirectoryLevel);
+    if (levels.length === 0) throw new Error("No directory levels found");
+
+    applyDirectoryLevels(levels);
+  } catch (err) {
+    console.error("Directory XML load error:", err);
+  }
+}
+
+async function initDashboard() {
+  try {
+    await loadSettings();
+
+    await Promise.all([
+      loadBranding(),
+      loadFooter(),
+      loadVideos(),
+      loadDirectory()
+    ]);
+
+    renderTickerMessages(appSettings?.ticker?.messages || []);
+    fetchNewsTicker();
+    fetchWeather();
+
+    setInterval(loadBranding, appSettings.branding.refreshMs);
+    setInterval(fetchNewsTicker, appSettings.news.refreshMs);
+    setInterval(fetchWeather, appSettings.weather.refreshMs);
+    setInterval(showNextDirectoryLevel, appSettings.directory.rotateMs);
+    setInterval(loadDirectory, appSettings.directory.refreshMs);
+  } catch (err) {
+    console.error("Dashboard startup error:", err);
+  }
+}
+
+initDashboard();
 </script>
 </body>
 </html>

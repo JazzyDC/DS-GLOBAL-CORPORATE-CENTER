@@ -1,15 +1,17 @@
 OPENKIOSK DIRECT FILE SETUP
 
 Use the direct HTML file in OpenKiosk. This does not need localhost, Node.js,
-PowerShell, BAT launchers, or a local web server.
+PowerShell, or a local web server.
+
+For OpenKiosk direct-file use, set the homepage to index.html.
 
 OpenKiosk URL format:
 
-file:///C:/PATH/TO/DS-GLOBAL-CORPORATE-CENTER/index-modern-backup.html
+file:///C:/PATH/TO/DS-GLOBAL-CORPORATE-CENTER/index.html
 
 Example:
 
-file:///C:/Users/admin/Desktop/DS-GLOBAL-CORPORATE-CENTER/index-modern-backup.html
+file:///C:/Users/admin/Desktop/DS-GLOBAL-CORPORATE-CENTER/index.html
 
 Steps:
 
